@@ -177,7 +177,7 @@ const Header = () => {
               Blogs
             </Link>
             <Link
-              href="#"
+              href="/contactUs"
               underline="none"
               sx={{
                 fontWeight: 500,

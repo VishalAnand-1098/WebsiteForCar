@@ -105,7 +105,7 @@ const Header = () => {
               }}
             >
               <Link
-                href="#"
+              href="/"
                 underline="none"
                 sx={{
                   fontSize: "16px",
@@ -119,7 +119,7 @@ const Header = () => {
               </Link>
 
               <Link
-                href="#"
+              href="/aboutUs"
                 underline="none"
                 sx={{
                   fontSize: "16px",
@@ -179,7 +179,7 @@ const Header = () => {
               </Link>
 
               <Link
-                href="#"
+              href="/contactUs"
                 underline="none"
                 sx={{
                   fontSize: "16px",

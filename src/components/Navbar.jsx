@@ -165,7 +165,7 @@ const Header = () => {
               </Box>
 
               <Link
-                href="#"
+                href="/blogs"
                 underline="none"
                 sx={{
                   fontSize: "16px",

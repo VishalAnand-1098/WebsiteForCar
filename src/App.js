@@ -4,6 +4,7 @@ import Footer from './components/Footer';
 import AboutUs from './components/AboutUs';
 import ContactUs from './components/ContactUs';
 import HomePage from './components/Homepage/Homepage';
+import Blogs from './components/Blogs';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 function App() {
@@ -19,7 +20,7 @@ function App() {
           <Route path="/" element={<HomePage />} />
           {/* Add other routes as needed */}
         <Route path="/contactUs" element={<ContactUs />} />
-        
+        <Route path="/blogs" element={<Blogs />} />
       </Routes>
 
       {/* Footer will be on bottom for every page */}

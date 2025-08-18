@@ -125,7 +125,7 @@ export default function AboutUsSection() {
       <div
         style={{
           width: "100%",
-          height: "300px",
+          height: "350px",
           marginBottom: "40px",
           backgroundImage: `url(${About})`,
           backgroundSize: "cover",
@@ -150,7 +150,7 @@ export default function AboutUsSection() {
       {/* Welcome Section */}
       <div
         style={{
-          maxWidth: "1200px",
+          maxWidth: "1300px",
           margin: "0 auto",
           display: "flex",
           flexDirection: "row",
@@ -160,7 +160,7 @@ export default function AboutUsSection() {
         }}
       >
         {/* Left Content */}
-        <div style={{ flex: 1 }}>
+        <div style={{ flex: 1 , marginLeft: "40px" }}>
           <h1
             style={{
               fontSize: "2.5rem",
@@ -309,7 +309,7 @@ export default function AboutUsSection() {
         </div>
       </div>
       <div className="bg-white py-12 px-4">
-      <div className="max-w-6xl mx-auto grid gap-8 md:grid-cols-3">
+      <div className="max-w-7xl mx-auto grid gap-12 md:grid-cols-3">
         {team.map((member, index) => (
           <div
             key={index}

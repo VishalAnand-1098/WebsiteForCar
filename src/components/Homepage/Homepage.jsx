@@ -9,7 +9,6 @@ import { Box, Typography } from '@mui/material';
 const HomePage = () => {
     return (
         <Box>
-            <Navbar />
              <Topbar />
             <Firstslidder /> 
             {/* <OurServices /> */}

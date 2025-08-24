@@ -1,270 +1,158 @@
 import React from "react";
+import Slider from "react-slick";
 import {
   Box,
-  Container,
-  Grid,
-  Stack,
   Typography,
-  Link,
+  Card,
+  CardContent,
+  CardActions,
+  Button,
   Divider,
-  IconButton,
-  List,
-  ListItem,
-  ListItemIcon,
-  ListItemText,
 } from "@mui/material";
-import PlaceOutlinedIcon from "@mui/icons-material/PlaceOutlined";
-import MailOutlineIcon from "@mui/icons-material/MailOutline";
-import LocalPhoneOutlinedIcon from "@mui/icons-material/LocalPhoneOutlined";
-import FiberManualRecordIcon from "@mui/icons-material/FiberManualRecord";
-import WhatsAppIcon from "@mui/icons-material/WhatsApp";
-import FacebookOutlinedIcon from "@mui/icons-material/FacebookOutlined";
-import InstagramIcon from "@mui/icons-material/Instagram";
-import YouTubeIcon from "@mui/icons-material/YouTube";
-import LinkedInIcon from "@mui/icons-material/LinkedIn";
-import XIcon from "@mui/icons-material/X";
+import DirectionsCarIcon from "@mui/icons-material/DirectionsCar";
+import AirlineSeatReclineNormalIcon from "@mui/icons-material/AirlineSeatReclineNormal";
+import LuggageIcon from "@mui/icons-material/Luggage";
+import PhoneIcon from "@mui/icons-material/Phone";
+import EmailIcon from "@mui/icons-material/Email";
 
-const ItemLink = ({ children, href = "#", ...props }) => (
-  <Link
-    href={href}
-    underline="hover"
-    color="text.secondary"
-    sx={{
-      display: "inline-flex",
-      alignItems: "center",
-      gap: 1,
-      "&:hover": { color: "text.primary" },
-    }}
-    {...props}
-  >
-    <FiberManualRecordIcon sx={{ fontSize: 8, color: "text.secondary" }} />
-    {children}
-  </Link>
-);
+// Images
+import swift from "./assets/swift.png";
+import etios from "./assets/etios.png";
+import ertiga from "./assets/ertiga.png";
+import innova from "./assets/innova.png";
 
-export default function Footer() {
+const fleets = [
+  {
+    name: "Maruti Swift Dzire",
+    type: "SEDAN",
+    seats: 5,
+    luggage: "YES",
+    img: swift,
+    desc: "Dezire Cab provides cost-effective taxi services that are both dependable and budget-friendly. Their pricing is designed to suit a variety of passengers, ensuring easy access to quality transportation without compromising on reliability.",
+  },
+  {
+    name: "Toyota Etios",
+    type: "SEDAN",
+    seats: 5,
+    luggage: "YES",
+    img: etios,
+    desc: "Planning a trip across India? The Toyota Etios makes a smart travel companion thanks to its dependable performance, spacious interior, and budget-friendly rates. Reserve your cab today and enjoy a smooth and stress-free journey!",
+  },
+  {
+    name: "Maruti Ertiga",
+    type: "SEDAN",
+    seats: 5,
+    luggage: "YES",
+    img: ertiga,
+    desc: "Known for its popularity among taxi operators in India, the Maruti Suzuki Ertiga stands out as a reliable choice. Ideal for long journeys, it offers spacious and comfortable seating for up to seven passengers.",
+  },
+  {
+    name: "Toyota Innova Crysta",
+    type: "SEDAN",
+    seats: 5,
+    luggage: "YES",
+    img: innova,
+    desc: "Perfect for long-distance travel, the Toyota Innova Crysta offers spacious and relaxing seating for seven passengers. Book the Innova Crysta for your next trip—it’s ideal for extended journeys and ensures a smooth ride.",
+  },
+];
+
+const FleetScroller = () => {
+  const settings = {
+    dots: false,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    responsive: [
+      { breakpoint: 1024, settings: { slidesToShow: 2 } },
+      { breakpoint: 600, settings: { slidesToShow: 1 } },
+    ],
+  };
+
   return (
-    <Box component="footer" sx={{ bgcolor: "background.default", pt: 3 }}>
-      {/* Top row: Logo + Contact blocks */}
-      <Container maxWidth="lg">
-        <Grid
-          container
-          spacing={{ xs: 2, md: 4 }}
-          alignItems="center"
-          sx={{ pb: 3 }}
-        >
-          <Grid item xs={12} md={4} lg={3}>
-            <Stack direction="row" alignItems="center" spacing={2}>
-              <Box
-                component="img"
-                src="/logo.png"
-                alt="Ghumti Ghumti Cab Service"
-                sx={{
-                  width: 160,
-                  height: 90,
-                  objectFit: "contain",
-                  borderRadius: 1,
-                  bgcolor: "rgba(255,255,255,0.04)",
-                  p: 1,
-                }}
-              />
-              <Box sx={{ display: { xs: "none", md: "block" } }}>
-                <Typography variant="h6" fontWeight={700}>
-                  GHUMTI GHUMTI
-                </Typography>
-                <Typography variant="caption" color="text.secondary">
-                  Cab Service
-                </Typography>
-              </Box>
-            </Stack>
-          </Grid>
+    <Box sx={{ py: 5, bgcolor: "#f5f5f5" }}>
+      <Typography
+        variant="h4"
+        align="center"
+        sx={{ mb: 3, fontWeight: "bold" }}
+      >
+        Our Fleets of{" "}
+        <Box component="span" sx={{ color: "orange" }}>
+          Cabs
+        </Box>
+      </Typography>
+      <Divider sx={{ width: "200px", mx: "auto", mb: 4 }} />
 
-          <Grid item xs={12} md={8} lg={9}>
-            <Grid container spacing={2}>
-              <Grid item xs={12} md={4}>
-                <Stack direction="row" spacing={2} alignItems="flex-start">
-                  <PlaceOutlinedIcon color="primary" />
-                  <Box>
-                    <Typography variant="subtitle2">Address :</Typography>
-                    <Typography variant="body2" color="text.secondary">
-                      G-67, Ground Floor, Near MCD Toll Pul Pahladpur, New Delhi – 110044
-                    </Typography>
-                  </Box>
-                </Stack>
-              </Grid>
-              <Grid item xs={12} md={4}>
-                <Stack direction="row" spacing={2} alignItems="flex-start">
-                  <MailOutlineIcon color="primary" />
-                  <Box>
-                    <Typography variant="subtitle2">Mail Id :</Typography>
-                    <Typography variant="body2" color="text.secondary">
-                      Ghumtighumticabservice@gmail.com
-                    </Typography>
-                    <Typography variant="caption" color="text.secondary">
-                      Send your Query Anytime!
-                    </Typography>
-                  </Box>
-                </Stack>
-              </Grid>
-              <Grid item xs={12} md={4}>
-                <Stack direction="row" spacing={2} alignItems="flex-start">
-                  <LocalPhoneOutlinedIcon color="primary" />
-                  <Box>
-                    <Typography variant="subtitle2">Phone No :</Typography>
-                    <Typography variant="body2" color="text.secondary">
-                      +91 73035 38650
-                    </Typography>
-                    <Typography variant="caption" color="text.secondary">
-                      Mon to Sat 9 AM to 6 PM
-                    </Typography>
-                  </Box>
-                </Stack>
-              </Grid>
-            </Grid>
-          </Grid>
-        </Grid>
-      </Container>
-
-      <Divider sx={{ opacity: 0.15 }} />
-
-      {/* Middle: 4 columns */}
-      <Container maxWidth="lg" sx={{ py: 4 }}>
-        <Grid container spacing={4}>
-          {/* About Us */}
-          <Grid item xs={12} md={4}>
-            <Typography variant="h6" gutterBottom>
-              About Us
-            </Typography>
-            <Typography variant="body2" color="text.secondary">
-              At Ghumti Ghumti, we offer affordable outstation and local taxi services in Delhi and nearby cities. Whether you're planning a trip to Jaipur, Uttarakhand, Himachal Pradesh, or any other destination.
-            </Typography>
-          </Grid>
-
-          {/* Quick Links */}
-          <Grid item xs={12} sm={6} md={2.5 }>
-            <Typography variant="h6" gutterBottom>
-              Quick Links
-            </Typography>
-            <Stack spacing={1}>
-              <ItemLink href="#">Home</ItemLink>
-              <ItemLink href="#">About Us</ItemLink>
-              <ItemLink href="#">Contact Us</ItemLink>
-              <ItemLink href="#">Privacy Policy</ItemLink>
-            </Stack>
-          </Grid>
-
-          {/* Indian Tourist Places */}
-          <Grid item xs={12} sm={6} md={3.5}>
-            <Typography variant="h6" gutterBottom>
-              Indian Tourist Places
-            </Typography>
-            <List dense disablePadding>
-              {[
-                "Delhi to Agra Taxi Service",
-                "Delhi to Mathura Taxi Service",
-                "Delhi to Vrindavan Taxi Service",
-                "Delhi to Bareilly Taxi Service",
-                "Delhi to Jaipur Taxi Service",
-                "Delhi to Dehradun Taxi Service",
-              ].map((t) => (
-                <ListItem key={t} disableGutters sx={{ py: 0.2 }}>
-                  <ListItemIcon sx={{ minWidth: 20 }}>
-                    <FiberManualRecordIcon sx={{ fontSize: 8, color: "text.secondary" }} />
-                  </ListItemIcon>
-                  <ListItemText
-                    primaryTypographyProps={{
-                      variant: "body2",
-                      color: "text.secondary",
-                    }}
-                    primary={t}
-                  />
-                </ListItem>
-              ))}
-            </List>
-          </Grid>
-
-          {/* Our Location */}
-          <Grid item xs={12} md={2}>
-            <Typography variant="h6" gutterBottom>
-              Our Location
-            </Typography>
-            <Box
-              component="iframe"
-              title="Map"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14017.4108!2d77.285!3d28.498!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce7e6f6c9d9f7%3A0x0!2sPul%20Pahladpur%2C%20New%20Delhi!5e0!3m2!1sen!2sin!4v0000000000"
-              width="100%"
-              height="150"
-              style={{ border: 0, borderRadius: 8, filter: "grayscale(30%)" }}
-              allowFullScreen
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-            />
-          </Grid>
-        </Grid>
-      </Container>
-
-      <Divider sx={{ opacity: 0.15 }} />
-
-      {/* Bottom bar */}
-      <Container maxWidth="lg" sx={{ py: 2 }}>
-        <Grid container alignItems="center">
-          <Grid item xs={12} md={8}>
-            <Typography variant="caption" color="text.secondary">
-              © 2025 Ghomti Ghomti Cab Service. All Rights Reserved | Designed By
-              <Box component="span" sx={{ ml: 0.5 }}>🧩</Box>
-            </Typography>
-          </Grid>
-          <Grid
-            item
-            xs={12}
-            md={4}
+      <Slider {...settings}>
+        {fleets.map((car, index) => (
+          <Card
+            key={index}
             sx={{
-              display: "flex",
-              justifyContent: { xs: "flex-start", md: "flex-end" },
-              gap: 1,
+              maxWidth: 350,
+              mx: 1,
+              borderRadius: 2,
+              boxShadow: 3,
+              overflow: "hidden",
             }}
           >
-            <IconButton color="inherit" size="small" aria-label="Facebook">
-              <FacebookOutlinedIcon fontSize="small" />
-            </IconButton>
-            <IconButton color="inherit" size="small" aria-label="X">
-              <XIcon fontSize="small" />
-            </IconButton>
-            <IconButton color="inherit" size="small" aria-label="Instagram">
-              <InstagramIcon fontSize="small" />
-            </IconButton>
-            <IconButton color="inherit" size="small" aria-label="YouTube">
-              <YouTubeIcon fontSize="small" />
-            </IconButton>
-            <IconButton color="inherit" size="small" aria-label="LinkedIn">
-              <LinkedInIcon fontSize="small" />
-            </IconButton>
-          </Grid>
-        </Grid>
-      </Container>
+            <Box component="img" src={car.img} alt={car.name} sx={{ width: "100%", height: 180, objectFit: "contain" }} />
+            <CardContent>
+              <Typography variant="h6" align="center" sx={{ mb: 2 }}>
+                {car.name}
+              </Typography>
 
-      {/* Floating WhatsApp button */}
-      <Box
-        sx={{
-          position: "fixed",
-          right: 16,
-          bottom: 16,
-          zIndex: 1200,
-        }}
-      >
-        <IconButton
-          size="large"
-          sx={{
-            bgcolor: "#25D366",
-            color: "#fff",
-            boxShadow: 4,
-            "&:hover": { bgcolor: "#1ebe57" },
-          }}
-          aria-label="WhatsApp"
-        >
-          <WhatsAppIcon />
-        </IconButton>
-      </Box>
+              <Box
+                sx={{
+                  display: "flex",
+                  justifyContent: "space-around",
+                  bgcolor: "#f0f0f0",
+                  py: 1,
+                  borderRadius: 1,
+                }}
+              >
+                <Box sx={{ textAlign: "center" }}>
+                  <DirectionsCarIcon sx={{ color: "orange" }} />
+                  <Typography variant="body2">{car.type}</Typography>
+                </Box>
+                <Box sx={{ textAlign: "center" }}>
+                  <AirlineSeatReclineNormalIcon sx={{ color: "orange" }} />
+                  <Typography variant="body2">{car.seats}</Typography>
+                </Box>
+                <Box sx={{ textAlign: "center" }}>
+                  <LuggageIcon sx={{ color: "orange" }} />
+                  <Typography variant="body2">{car.luggage}</Typography>
+                </Box>
+              </Box>
+
+              <Typography
+                variant="body2"
+                sx={{ mt: 2, textAlign: "center" }}
+              >
+                {car.desc}
+              </Typography>
+            </CardContent>
+
+            <CardActions sx={{ justifyContent: "space-between" }}>
+              <Button
+                size="small"
+                sx={{ bgcolor: "orange", color: "white", flex: 1 }}
+                startIcon={<PhoneIcon />}
+              >
+                Call
+              </Button>
+              <Button
+                size="small"
+                sx={{ bgcolor: "black", color: "white", flex: 1 }}
+                startIcon={<EmailIcon />}
+              >
+                Email
+              </Button>
+            </CardActions>
+          </Card>
+        ))}
+      </Slider>
     </Box>
   );
-}
+};
+
+export default FleetScroller;

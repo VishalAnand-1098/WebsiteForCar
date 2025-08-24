@@ -148,7 +148,7 @@ const Header = () => {
                 mx: 5,
               }}
             >
-              {["Home", "About Us", "Contact"].map((item, index) => (
+              {["Home", "About Us", "Contact","Blogs"].map((item, index) => (
                 <Link
                   key={index}
                   href={
@@ -156,8 +156,6 @@ const Header = () => {
                       ? "/"
                       : `/${item.replace(/\s+/g, "").toLowerCase()}`
                   }
-                href="/blogs"
-                href="#"
                   underline="none"
                   sx={{
                     fontSize: "16px",

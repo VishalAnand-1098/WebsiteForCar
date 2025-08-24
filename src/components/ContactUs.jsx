@@ -229,7 +229,7 @@ const ContactUs = () => {
           </div>
         </div>
       </div>
-      <div className="border-2 mx-auto border-orange-500" style={{ position: "relative", width: "90%", height: "70vh" }}>
+      <div className="border-2 mx-auto mb-10 border-orange-500" style={{ position: "relative", width: "90%", height: "70vh" }}>
         {/* Transparent overlay that opens Simplifying Skills location on click */}
         <a
           href="https://maps.app.goo.gl/coCL1BUCjUv2Vzr38"

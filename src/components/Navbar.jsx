@@ -1,10 +1,9 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import {
   AppBar,
   Box,
   Toolbar,
   Typography,
-  Button,
   Link,
   Container,
 } from "@mui/material";
@@ -13,61 +12,104 @@ import EmailIcon from "@mui/icons-material/Email";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import YouTubeIcon from "@mui/icons-material/YouTube";
-import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import logo from "../assets/Ghumi.webp";
 
 const Header = () => {
+  const [showTopBar, setShowTopBar] = useState(true);
+  const [isSticky, setIsSticky] = useState(false);
+  const [bgColor, setBgColor] = useState("#fff");
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollY = window.scrollY;
+
+      if (scrollY > 60) {
+        setShowTopBar(false);
+        setIsSticky(true);
+      } else {
+        setShowTopBar(true);
+        setIsSticky(false);
+      }
+
+      // gradually shift white -> dark gray
+      const progress = Math.min(scrollY / 300, 1); // clamp between 0–1
+      const grayValue = 255 - progress * 120; // from 255 (white) down to 75 (dark gray)
+      setBgColor(`rgb(${grayValue}, ${grayValue}, ${grayValue})`);
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const navbarHeight = isSticky ? 70 : 90;
+
   return (
     <Box sx={{ width: "100%", fontFamily: "Arial, sans-serif" }}>
       {/* ===== TOP STRIP ===== */}
-      <Box sx={{ display: "flex", height: 40, width: "100%" }}>
-        {/* Left orange section */}
-        <Box
-          sx={{
-            flex: 1,
-            backgroundColor: "#f97316",
-            display: "flex",
-            alignItems: "center",
-            gap: 3,
-            px: 4,
-            color: "#fff",
-          }}
-        >
-          <PhoneIphoneIcon sx={{ fontSize: 18 }} />
-          <Typography sx={{ fontWeight: 600, fontSize: 15 }}>
-            +91 73035 38650
-          </Typography>
-          <EmailIcon sx={{ fontSize: 18, ml: 4 }} />
-          <Typography sx={{ fontSize: 15 }}>
-            Ghumighumicabservice@gmail.com
-          </Typography>
-        </Box>
+      <Box
+        sx={{
+          width: "100%",
+          overflow: "hidden",
+          transition: "all 0.4s ease-in-out",
+          maxHeight: showTopBar ? 40 : 0,
+          opacity: showTopBar ? 1 : 0,
+        }}
+      >
+        <Box sx={{ display: "flex", height: 40, width: "100%" }}>
+          {/* Left orange */}
+          <Box
+            sx={{
+              flex: 1,
+              backgroundColor: "#f97316",
+              display: "flex",
+              alignItems: "center",
+              gap: 3,
+              px: 4,
+              color: "#fff",
+              transition: "all 0.4s ease-in-out",
+            }}
+          >
+            <PhoneIphoneIcon sx={{ fontSize: 18 }} />
+            <Typography sx={{ fontWeight: 600, fontSize: 15 }}>
+              +91 73035 38650
+            </Typography>
+            <EmailIcon sx={{ fontSize: 18, ml: 4 }} />
+            <Typography sx={{ fontSize: 15 }}>
+              Ghumighumicabservice@gmail.com
+            </Typography>
+          </Box>
 
-        {/* Right blue section */}
-        <Box
-          sx={{
-            backgroundColor: "#075985",
-            display: "flex",
-            alignItems: "center",
-            px: 3,
-            gap: 2,
-            color: "#fff",
-          }}
-        >
-          <FacebookIcon sx={{ fontSize: 18, cursor: "pointer" }} />
-          <InstagramIcon sx={{ fontSize: 18, cursor: "pointer" }} />
-          <YouTubeIcon sx={{ fontSize: 18, cursor: "pointer" }} />
+          {/* Right blue */}
+          <Box
+            sx={{
+              backgroundColor: "#075985",
+              display: "flex",
+              alignItems: "center",
+              px: 3,
+              gap: 2,
+              color: "#fff",
+              transition: "all 0.4s ease-in-out",
+            }}
+          >
+            <FacebookIcon sx={{ fontSize: 18, cursor: "pointer" }} />
+            <InstagramIcon sx={{ fontSize: 18, cursor: "pointer" }} />
+            <YouTubeIcon sx={{ fontSize: 18, cursor: "pointer" }} />
+          </Box>
         </Box>
       </Box>
 
       {/* ===== MAIN NAVBAR ===== */}
       <AppBar
-        position="static"
+        enableColorOnDark
+        position={isSticky ? "fixed" : "static"}
         sx={{
-          backgroundColor: "#fff",
+          backgroundColor: bgColor + " !important", // force apply
           color: "#000",
-          boxShadow: "none",
-          borderBottom: "1px solid #ddd",
+          boxShadow: isSticky ? "0 2px 10px rgba(0,0,0,0.15)" : "none",
+          borderBottom: isSticky ? "1px solid #e5e5e5" : "none",
+          transition:
+            "background-color 0.4s ease-in-out, box-shadow 0.4s ease-in-out",
+          zIndex: 1200,
         }}
       >
         <Container maxWidth="lg" sx={{ px: 2 }}>
@@ -77,7 +119,8 @@ const Header = () => {
               display: "flex",
               justifyContent: "space-between",
               alignItems: "center",
-              minHeight: 80,
+              minHeight: navbarHeight,
+              transition: "all 0.4s ease-in-out",
             }}
           >
             {/* LOGO */}
@@ -86,9 +129,10 @@ const Header = () => {
                 src={logo}
                 alt="Logo"
                 style={{
-                  height: "75px",
+                  height: isSticky ? "55px" : "70px",
                   borderRadius: "12px",
                   display: "block",
+                  transition: "all 0.4s ease-in-out",
                 }}
               />
             </Box>
@@ -104,118 +148,33 @@ const Header = () => {
                 mx: 5,
               }}
             >
-              <Link
-              href="/"
-                underline="none"
-                sx={{
-                  fontSize: "16px",
-                  fontWeight: 500,
-                  color: "#000",
-                  whiteSpace: "nowrap",
-                  "&:hover": { color: "#f97316" },
-                }}
-              >
-                Home
-              </Link>
-
-              <Link
-              href="/aboutUs"
-                underline="none"
-                sx={{
-                  fontSize: "16px",
-                  fontWeight: 500,
-                  color: "#000",
-                  whiteSpace: "nowrap",
-                  "&:hover": { color: "#f97316" },
-                }}
-              >
-                About Us
-              </Link>
-
-              {/* One Way Cabs */}
-              <Box
-                sx={{
-                  display: "flex",
-                  alignItems: "center",
-                  cursor: "pointer",
-                  "&:hover": { color: "#f97316" },
-                  whiteSpace: "nowrap",
-                }}
-              >
-                <Typography sx={{ fontSize: "16px", fontWeight: 500 }}>
-                  One Way Cabs
-                </Typography>
-                <ArrowDropDownIcon sx={{ fontSize: 20 }} />
-              </Box>
-
-              {/* Round Trip Cabs */}
-              <Box
-                sx={{
-                  display: "flex",
-                  alignItems: "center",
-                  cursor: "pointer",
-                  "&:hover": { color: "#f97316" },
-                  whiteSpace: "nowrap",
-                }}
-              >
-                <Typography sx={{ fontSize: "16px", fontWeight: 500 }}>
-                  Round Trip Cabs
-                </Typography>
-                <ArrowDropDownIcon sx={{ fontSize: 20 }} />
-              </Box>
-
-              <Link
-                href="#"
-                underline="none"
-                sx={{
-                  fontSize: "16px",
-                  fontWeight: 500,
-                  color: "#000",
-                  whiteSpace: "nowrap",
-                  "&:hover": { color: "#f97316" },
-                }}
-              >
-                Blogs
-              </Link>
-
-              <Link
-              href="/contactUs"
-                underline="none"
-                sx={{
-                  fontSize: "16px",
-                  fontWeight: 500,
-                  color: "#000",
-                  whiteSpace: "nowrap",
-                  "&:hover": { color: "#f97316" },
-                }}
-              >
-                Contact Us
-              </Link>
+              {["Home", "About Us", "Contact"].map((item, index) => (
+                <Link
+                  key={index}
+                  href={
+                    item === "Home"
+                      ? "/"
+                      : `/${item.replace(/\s+/g, "").toLowerCase()}`
+                  }
+                  underline="none"
+                  sx={{
+                    fontSize: "16px",
+                    fontWeight: 500,
+                    color: "#000",
+                    transition: "color 0.3s ease-in-out",
+                    "&:hover": { color: "#f97316" },
+                  }}
+                >
+                  {item}
+                </Link>
+              ))}
             </Box>
-
-            {/* CALL ME NOW */}
-            <Button
-              variant="contained"
-              sx={{
-                backgroundColor: "#f97316",
-                color: "#fff",
-                fontWeight: "bold",
-                textTransform: "none",
-                fontSize: "14px",
-                px: 3,
-                height: "42px",
-                borderRadius: 1,
-                boxShadow: "none",
-                "&:hover": {
-                  backgroundColor: "#ea580c",
-                },
-              }}
-            >
-              Call Me Now
-            </Button>
           </Toolbar>
         </Container>
       </AppBar>
+
+      {/* Placeholder div to prevent jump on scroll */}
+      {isSticky && <Box sx={{ height: `${navbarHeight}px` }} />}
     </Box>
   );
 };

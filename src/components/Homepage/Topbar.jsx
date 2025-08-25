@@ -148,7 +148,7 @@ const CabCarousel = () => {
             fontSize: "0.9rem",
           }}
         >
-          Ghumi Ghumi Cab Services
+          Shubh Trip Travels Cab Services
         </div>
         <h1
           style={{

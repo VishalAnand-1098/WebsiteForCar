@@ -50,7 +50,7 @@ const GhumiGhumi = () => {
                 <Grid item xs={12} md={6}>
                     <Box sx={{ maxWidth: { xs: '100%', sm: '480px', md: '500px' }, width: '100%' }}>
                         <Typography sx={{ fontSize: 16, color: '#000', mb: 2, lineHeight: 1.8 }}>
-                            At Ghumi Ghumi Cab Service, we believe that every journey deserves to be comfortable and enjoyable.
+                            At Shubh Trip Travels Cab Service, we believe that every journey deserves to be comfortable and enjoyable.
                             That’s why we proudly offer convenient doorstep taxi services across Delhi NCR, ensuring you never have
                             to wait or walk for a ride. Whether you’re heading to an important business meeting, catching a flight,
                             or embarking on a weekend escape, our dependable fleet—featuring a range of economy cars, SUVs, and
@@ -61,7 +61,7 @@ const GhumiGhumi = () => {
                             drivers, and a swift, hassle-free booking process, all tailored to enhance your travel experience.
                         </Typography>
 
-                        <Typography sx={{ fontWeight: 600, mb: 1 }}>Why Choose Ghumi Ghumi?</Typography>
+                        <Typography sx={{ fontWeight: 600, mb: 1 }}>Why Choose Shubh Trip Travels?</Typography>
 
                         <Typography
                             component="ul"

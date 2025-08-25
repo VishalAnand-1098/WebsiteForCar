@@ -12,7 +12,7 @@ import EmailIcon from "@mui/icons-material/Email";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import YouTubeIcon from "@mui/icons-material/YouTube";
-import logo from "../assets/Ghumi.webp";
+import logo from "../assets/Ghumi.png";
 
 const Header = () => {
   const [showTopBar, setShowTopBar] = useState(true);
@@ -75,7 +75,7 @@ const Header = () => {
             </Typography>
             <EmailIcon sx={{ fontSize: 18, ml: 4 }} />
             <Typography sx={{ fontSize: 15 }}>
-              Ghumighumicabservice@gmail.com
+              shubhtriptravel@gmail.com
             </Typography>
           </Box>
 
@@ -91,9 +91,32 @@ const Header = () => {
               transition: "all 0.4s ease-in-out",
             }}
           >
-            <FacebookIcon sx={{ fontSize: 18, cursor: "pointer" }} />
-            <InstagramIcon sx={{ fontSize: 18, cursor: "pointer" }} />
-            <YouTubeIcon sx={{ fontSize: 18, cursor: "pointer" }} />
+           {/* Facebook */}
+      <a 
+        href="https://www.facebook.com/share/14DmCBSZ6UY/" 
+        target="_blank" 
+        rel="noopener noreferrer"
+      >
+        <FacebookIcon sx={{ fontSize: 18, cursor: "pointer", color: "#1877F2" }} />
+      </a>
+
+      {/* Instagram */}
+      <a 
+        href="https://www.instagram.com/p/DMuUibqJYQT/?igsh=MWI1bnE5ODZpeW03Zg==" 
+        target="_blank" 
+        rel="noopener noreferrer"
+      >
+        <InstagramIcon sx={{ fontSize: 18, cursor: "pointer", color: "#E4405F" }} />
+      </a>
+
+      {/* YouTube */}
+      <a 
+        href="https://www.youtube.com/@ShubhTriptravel" 
+        target="_blank" 
+        rel="noopener noreferrer"
+      >
+        <YouTubeIcon sx={{ fontSize: 18, cursor: "pointer", color: "#FF0000" }} />
+      </a>
           </Box>
         </Box>
       </Box>

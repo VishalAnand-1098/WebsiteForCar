@@ -16,7 +16,7 @@ import TwitterIcon from "@mui/icons-material/Twitter"; // use for X
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import YouTubeIcon from "@mui/icons-material/YouTube";
 
-import logo from "../assets/Ghumi.webp"; // <-- replace with your logo
+import logo from "../assets/Ghumi.png"; // <-- replace with your logo
 
 const Footer = () => {
   return (
@@ -35,7 +35,7 @@ const Footer = () => {
             <Box
               component="img"
               src={logo}
-              alt="Ghumi Ghumi Cab Service"
+              alt="Shubh Trip Travels Cab Service"
               sx={{ width: 200, height: "auto", borderRadius: 2 }}
             />
           </Grid>
@@ -56,11 +56,11 @@ const Footer = () => {
               <Typography variant="body1" sx={{ maxWidth: "300px" }}>
                 <b>Mail Id :</b> <br />
                 <Link
-                  href="mailto:ghumighumicabservice@gmail.com"
+                  href="mailto:shubhtriptravel@gmail.com"
                   color="inherit"
                   underline="hover"
                 >
-                  Ghumighumicabservice@gmail.com
+                  shubhtriptravel@gmail.com
                 </Link>
                 <br /> Send your Query Anytime!
               </Typography>
@@ -110,7 +110,7 @@ const Footer = () => {
               variant="body2"
               sx={{ lineHeight: 1.8, maxWidth: "300px" }}
             >
-              At Ghumi Ghumi, we offer affordable outstation and local taxi
+              At Shubh Trip Travels, we offer affordable outstation and local taxi
               services in Delhi and nearby cities. Whether you’re planning a
               trip to Jaipur, Uttarakhand, Himachal Pradesh, or any other
               destination.
@@ -196,7 +196,7 @@ const Footer = () => {
             <Grid item xs={12} md={6}>
               <Typography variant="body2" sx={{ color: "white" }}>
                 Copyright © 2025{" "}
-                <b>Ghommi Ghummi Cab Service</b> All Rights Reserved 
+                <b>Shubh Trip Travels Cab Service</b> All Rights Reserved 
               </Typography>
             </Grid>
 

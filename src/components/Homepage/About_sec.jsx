@@ -101,7 +101,7 @@ const AboutUs = () => {
             }}
           >
             Welcome To{" "}
-            <span style={{ color: "#ff6600" }}>Ghumi Ghumi Cab Service</span>
+            <span style={{ color: "#ff6600" }}>Shubh Trip Travels Cab Service</span>
           </h2>
 
           <p
@@ -115,7 +115,7 @@ const AboutUs = () => {
               marginRight: isMobile ? "auto" : "0",
             }}
           >
-            At Ghumi Ghumi, we offer affordable outstation and local taxi
+            At Shubh Trip Travels, we offer affordable outstation and local taxi
             services in Delhi and nearby cities. Whether you’re planning a trip
             to Jaipur, Uttarakhand, Himachal Pradesh, or any other destination,
             we’re here to make your journey smooth and hassle-free. Our
@@ -178,7 +178,7 @@ const AboutUs = () => {
             color: "#333",
           }}
         >
-          Ghumi Ghumi Cab Service is one of the trusted names in tour and travel
+          Shubh Trip Travels Cab Service is one of the trusted names in tour and travel
           services in Delhi, offering a wide range of taxis at the most
           affordable rates. Whether you need an economy car, a luxury vehicle,
           or an SUV, you can easily book the right ride from our diverse fleet
@@ -218,7 +218,7 @@ const AboutUs = () => {
             color: "#333",
           }}
         >
-          Your comfort and convenience are our top priorities. At Ghumi Ghumi
+          Your comfort and convenience are our top priorities. At Shubh Trip Travels
           Cab Service, we focus on customer satisfaction by offering top-quality
           vehicles and reliable service. Our fleet of tourist cars in Delhi
           includes fully air-conditioned, well-maintained vehicles with premium

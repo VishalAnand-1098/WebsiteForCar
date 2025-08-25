@@ -142,7 +142,7 @@ const ContactUs = () => {
                 <FaEnvelope className="text-orange-500 text-3xl" />
                 <div>
                   <p className="font-semibold text-xl text-gray-800" style={{ fontFamily: "Jost", fontWeight: "500" }}>Mail Id :</p>
-                  <p className="text-gray-600 text-lg" style={{ fontFamily: "Jost", fontWeight: "500" }}>Ghumighumicabservice@gmail.com</p>
+                  <p className="text-gray-600 text-lg" style={{ fontFamily: "Jost", fontWeight: "500" }}>shubhtriptravel@gmail.com</p>
                 </div>
               </div>
 
@@ -151,7 +151,7 @@ const ContactUs = () => {
                 <FaPhone className="text-orange-500 text-3xl" />
                 <div>
                   <p className="font-semibold text-xl text-gray-800" style={{ fontFamily: "Jost", fontWeight: "500" }}>Phone No :</p>
-                  <p className="text-gray-600 text-lg" style={{ fontFamily: "Jost", fontWeight: "500" }}>+91 9341483339</p>
+                  <p className="text-gray-600 text-lg" style={{ fontFamily: "Jost", fontWeight: "500" }}>+91 7303538650</p>
                 </div>
               </div>
 
@@ -276,12 +276,12 @@ const ContactUs = () => {
 
               <Box sx={{ display: "flex", alignItems: "center", mb: 2 }}>
                 <EmailIcon sx={{ color: "#f97316", mr: 2 }} />
-                <Typography>Ghumighumicabservice@gmail.com</Typography>
+                <Typography>shubhtriptravel@gmail.com</Typography>
               </Box>
 
               <Box sx={{ display: "flex", alignItems: "center" }}>
                 <PhoneIphoneIcon sx={{ color: "#f97316", mr: 2 }} />
-                <Typography>+91 9341483339</Typography>
+                <Typography>+91 7303538650</Typography>
               </Box>
             </Paper>
           </Grid>

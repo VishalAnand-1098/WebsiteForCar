@@ -78,12 +78,12 @@ export default function AboutUsSection() {
     {
       title: "Our Mission",
       content:
-        "At Ghumi Ghumi Cab Service, our mission is to redefine travel by delivering safe, affordable, and seamless cab services that cater to every traveler's needs. We aim to offer the most reliable taxi service experience with transparent pricing, courteous drivers, and a wide fleet of vehicles—making travel from Delhi NCR to any destination a comfortable and memorable journey.",
+        "At Shubh Trip Travels Cab Service, our mission is to redefine travel by delivering safe, affordable, and seamless cab services that cater to every traveler's needs. We aim to offer the most reliable taxi service experience with transparent pricing, courteous drivers, and a wide fleet of vehicles—making travel from Delhi NCR to any destination a comfortable and memorable journey.",
     },
     {
       title: "Our Vision",
       content:
-        "Our vision is to become India's most trusted name in intercity cab travel by combining technology, affordability, and outstanding service. We envision a future where every ride with Ghumi Ghumi Cab Service adds value to your journey—whether you're traveling for leisure, business, or pilgrimage.",
+        "Our vision is to become India's most trusted name in intercity cab travel by combining technology, affordability, and outstanding service. We envision a future where every ride with Shubh Trip Travels Cab Service adds value to your journey—whether you're traveling for leisure, business, or pilgrimage.",
     },
     {
       title: "Our Value",
@@ -135,10 +135,10 @@ export default function AboutUsSection() {
         {/* Left Content */}
         <div className="w-full lg:w-1/2">
           <h1 className="text-2xl md:text-3xl lg:text-4xl font-medium text-gray-900 leading-tight font-jost">
-            Welcome To Ghumi Ghumi Cab Service
+            Welcome To Shubh Trip Travels Cab Service
           </h1>
           <p className="mt-4 text-base md:text-lg text-gray-700 leading-relaxed font-jost font-medium">
-            At Ghumi Ghumi, we offer affordable outstation and local taxi
+            At Shubh Trip Travels, we offer affordable outstation and local taxi
             services in Delhi and nearby cities. Whether you're planning a trip
             to Jaipur, Uttarakhand, Himachal Pradesh, or any other destination,
             we're here to make your journey smooth and hassle-free. Our

@@ -1,8 +1,8 @@
 import About from "../assets/About.webp";
 export default function Blogs() {
-    return (
-        <div>
-            <div
+  return (
+    <div>
+      <div
         style={{
           width: "100%",
           height: "350px",
@@ -25,7 +25,8 @@ export default function Blogs() {
         >
           Blogs
         </h1>
+        
       </div>
-        </div>
-    );
+    </div>
+  );
 }

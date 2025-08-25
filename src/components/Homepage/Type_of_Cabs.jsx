@@ -137,7 +137,7 @@ const TypesOfCabExtended = () => {
         <div style={contentStyle}>
           <h1 style={titleStyle}>Types Of Cab</h1>
           <p style={paragraphStyle}>
-            Ghumi Ghumi Cab Service offers a variety of vehicles to suit your needs and
+            Shubh Trip Travels Cab Service offers a variety of vehicles to suit your needs and
             budget. Choose from hatchbacks, sedans, SUVs, and more—whether you’re
             looking for comfort, space, or luxury, we have the perfect cab for your journey.
           </p>
@@ -246,7 +246,7 @@ const TypesOfCabExtended = () => {
           marginBottom: '30px',
         }}
       >
-        Looking for a reliable taxi service in Delhi? Ghumi Ghumi Cab Service offers the best options for outstation travel and Delhi Darshan by car. Whether you’re planning a weekend trip from Delhi to Agra, Jaipur, Himachal, Uttarakhand, Amritsar, or any other destination in North India—we’ve got you covered.
+        Looking for a reliable taxi service in Delhi? Shubh Trip Travels Cab Service offers the best options for outstation travel and Delhi Darshan by car. Whether you’re planning a weekend trip from Delhi to Agra, Jaipur, Himachal, Uttarakhand, Amritsar, or any other destination in North India—we’ve got you covered.
       </p>
 
       <p
@@ -274,8 +274,8 @@ const TypesOfCabExtended = () => {
         }}
       >
         Take advantage of our great deals on Delhi sightseeing packages by car. For bookings or inquiries, feel free to call us at{' '}
-        <strong>+91-8826136705</strong> or email us at{' '}
-        <strong>ghumighumitaxiservice@gmail.com</strong> (please update this email if needed).
+        <strong>+91-7303538650</strong> or email us at{' '}
+        <strong>shubhtriptravel@gmail.com</strong> (please update this email if needed).
       </p>
     </div>
     </>

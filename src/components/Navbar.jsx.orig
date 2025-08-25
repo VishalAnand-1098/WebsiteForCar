@@ -75,7 +75,7 @@ const Header = () => {
             </Typography>
             <EmailIcon sx={{ fontSize: 18, ml: 4 }} />
             <Typography sx={{ fontSize: 15 }}>
-              Ghumighumicabservice@gmail.com
+              shubhtriptravel@gmail.com
             </Typography>
           </Box>
 

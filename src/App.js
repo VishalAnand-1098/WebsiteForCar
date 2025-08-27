@@ -1,5 +1,5 @@
 import './App.css';
-import Navbar from './components/Navbar';
+import NavBar from './components/NavBarcall';
 import Footer from './components/Footer';
 import AboutUs from './components/AboutUs';
 import ContactUs from './components/ContactUs';
@@ -11,7 +11,7 @@ function App() {
   return (
     <Router>
       {/* Navbar will be on top for every page */}
-      <Navbar />
+      <NavBar />
 
       {/* Page-specific content */}
       <Routes>

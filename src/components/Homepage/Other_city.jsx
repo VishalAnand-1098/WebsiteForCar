@@ -60,9 +60,8 @@ function CityCard({ city }) {
 
   return (
     <div
+      className="city-card"
       style={{
-        flex: "1 1 25%",
-        maxWidth: "calc(25% - 20px)", // subtract margin for exact fit
         margin: "10px",
         borderRadius: "20px 0 20px 0",
         boxShadow: hovered
@@ -189,7 +188,7 @@ function App() {
         minHeight: "100vh",
         boxSizing: "border-box",
         width: "100%",
-        textAlign: "center", // Center headline horizontally
+        textAlign: "center",
       }}
     >
       {/* Headline */}
@@ -198,7 +197,6 @@ function App() {
           fontWeight: "bold",
           fontSize: "28px",
           marginBottom: "30px",
-          fontFamily: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif",
           display: "inline-flex",
           alignItems: "center",
           gap: "6px",
@@ -211,18 +209,43 @@ function App() {
       </h1>
 
       {/* City cards container */}
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "space-between",
-          flexWrap: "wrap",
-          marginTop: "20px",
-        }}
-      >
+      <div className="city-grid">
         {cities.map((city, index) => (
           <CityCard key={index} city={city} />
         ))}
       </div>
+
+      {/* Responsive CSS */}
+      <style>{`
+        .city-grid {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: space-between;
+          margin-top: 20px;
+        }
+
+        /* Desktop */
+        .city-card {
+          flex: 1 1 calc(25% - 20px);
+          max-width: calc(25% - 20px);
+        }
+
+        /* Tablet */
+        @media (max-width: 900px) {
+          .city-card {
+            flex: 1 1 calc(50% - 20px);
+            max-width: calc(50% - 20px);
+          }
+        }
+
+        /* Mobile */
+        @media (max-width: 600px) {
+          .city-card {
+            flex: 1 1 100%;
+            max-width: 100%;
+          }
+        }
+      `}</style>
     </div>
   );
 }

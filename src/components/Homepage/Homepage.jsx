@@ -1,6 +1,5 @@
 // src/components/Homepage/HomePage.jsx
 import React from 'react';
-import Navbar from '../Navbar';
 import Topbar from './Topbar';
 import Firstslidder from './Firstslidder';
 import FleetScroller from './Fleetofcabs';

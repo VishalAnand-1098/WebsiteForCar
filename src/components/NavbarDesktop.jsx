@@ -34,7 +34,7 @@ const Header = () => {
       // gradually shift white -> dark gray
       const progress = Math.min(scrollY / 300, 1); // clamp between 0–1
       const grayValue = 255 - progress * 120; // from 255 (white) down to 75 (dark gray)
-      setBgColor(`rgb(${grayValue}, ${grayValue}, ${grayValue})`);
+      setBgColor(`[#97B067]`);
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
@@ -60,7 +60,7 @@ const Header = () => {
           <Box
             sx={{
               flex: 1,
-              backgroundColor: "#f97316",
+              backgroundColor: "#2F5249",
               display: "flex",
               alignItems: "center",
               gap: 3,
@@ -82,7 +82,7 @@ const Header = () => {
           {/* Right blue */}
           <Box
             sx={{
-              backgroundColor: "#075985",
+              backgroundColor: "#97B067",
               display: "flex",
               alignItems: "center",
               px: 3,
@@ -166,6 +166,8 @@ const Header = () => {
                 display: "flex",
                 alignItems: "center",
                 gap: 4,
+                fontFamily: "Jost",
+                fontWeight: "700",
                 justifyContent: "center",
                 flexGrow: 1,
                 mx: 5,
@@ -185,7 +187,7 @@ const Header = () => {
                     fontWeight: 500,
                     color: "#000",
                     transition: "color 0.3s ease-in-out",
-                    "&:hover": { color: "#f97316" },
+                    "&:hover": { color: "#2F5249" },
                   }}
                 >
                   {item}

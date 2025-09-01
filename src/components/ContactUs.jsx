@@ -116,10 +116,10 @@ const ContactUs = () => {
           <div>
             <div className="flex items-center">
               {/* Left vertical line */}
-              <div className="w-1 bg-orange-500 h-10 mr-1"></div>
+              <div className="w-1 bg-[#2F5249] h-10 mr-1"></div>
 
               {/* Header bar */}
-              <div className="bg-orange-500 w-full text-white text-4xl px-6 rounded-r-full" style={{ fontFamily: "Jost", fontWeight: "500" }}>
+              <div className="bg-[#2F5249] w-full text-white text-4xl px-6 rounded-r-full" style={{ fontFamily: "Jost", fontWeight: "500" }}>
                 Contact Details
               </div>
             </div>
@@ -127,7 +127,7 @@ const ContactUs = () => {
             <div className="mt-6 space-y-6">
               {/* Address */}
               <div className="flex items-start gap-4">
-                <FaMapMarkerAlt className="text-orange-500 text-3xl" />
+                <FaMapMarkerAlt className="text-[#2F5249] text-3xl" />
                 <div>
                   <p className="font-semibold text-xl text-gray-800" style={{ fontFamily: "Jost", fontWeight: "500" }}>Address :</p>
                   <p className="text-gray-600 text-lg" style={{ fontFamily: "Jost", fontWeight: "500" }}>
@@ -139,7 +139,7 @@ const ContactUs = () => {
 
               {/* Email */}
               <div className="flex items-start gap-4">
-                <FaEnvelope className="text-orange-500 text-3xl" />
+                <FaEnvelope className="text-[#2F5249] text-3xl" />
                 <div>
                   <p className="font-semibold text-xl text-gray-800" style={{ fontFamily: "Jost", fontWeight: "500" }}>Mail Id :</p>
                   <p className="text-gray-600 text-lg" style={{ fontFamily: "Jost", fontWeight: "500" }}>shubhtriptravel@gmail.com</p>
@@ -148,7 +148,7 @@ const ContactUs = () => {
 
               {/* Phone */}
               <div className="flex items-start gap-4">
-                <FaPhone className="text-orange-500 text-3xl" />
+                <FaPhone className="text-[#2F5249] text-3xl" />
                 <div>
                   <p className="font-semibold text-xl text-gray-800" style={{ fontFamily: "Jost", fontWeight: "500" }}>Phone No :</p>
                   <p className="text-gray-600 text-lg" style={{ fontFamily: "Jost", fontWeight: "500" }}>+91 7303538650</p>
@@ -164,10 +164,10 @@ const ContactUs = () => {
           <div>
             <div className="flex items-center">
               {/* Left vertical line */}
-              <div className="w-1 bg-orange-500 h-10 mr-1"></div>
+              <div className="w-1 bg-[#2F5249] h-10 mr-1"></div>
 
               {/* Header bar */}
-              <div className="bg-orange-500 w-full text-white text-4xl px-6 rounded-r-full" style={{ fontFamily: "Jost", fontWeight: "500" }}>
+              <div className="bg-[#2F5249] w-full text-white text-4xl px-6 rounded-r-full" style={{ fontFamily: "Jost", fontWeight: "500" }}>
                 Enquiry Now
               </div>
             </div>
@@ -178,13 +178,13 @@ const ContactUs = () => {
                 <input
                   type="text"
                   placeholder="Name"
-                  className="w-full px-4 py-2 rounded-md bg-gray-200 border-b-2 border-orange-400 placeholder-black focus:outline-none focus:border-orange-500"
+                  className="w-full px-4 py-2 rounded-md bg-gray-200 border-b-2 border-[#2F5249] placeholder-black focus:outline-none focus:border-[#2F5249]"
                   style={{ fontFamily: "Jost", fontWeight: "500" }}
                 />
                 <input
                   type="text"
                   placeholder="Phone No."
-                  className="w-full px-4 py-2 rounded-md bg-gray-200 border-b-2 border-orange-400 placeholder-black focus:outline-none focus:border-orange-500" style={{ fontFamily: "Jost", fontWeight: "500" }}
+                  className="w-full px-4 py-2 rounded-md bg-gray-200 border-b-2 border-[#2F5249] placeholder-black focus:outline-none focus:border-[#2F5249]" style={{ fontFamily: "Jost", fontWeight: "500" }}
                 />
               </div>
 
@@ -192,14 +192,14 @@ const ContactUs = () => {
               <input
                 type="email"
                 placeholder="Email Address"
-                className="w-full px-4 py-2 rounded-md bg-gray-200 border-b-2 border-orange-400 placeholder-black focus:outline-none focus:border-orange-500" style={{ fontFamily: "Jost", fontWeight: "500" }}
+                className="w-full px-4 py-2 rounded-md bg-gray-200 border-b-2 border-[#2F5249] placeholder-black focus:outline-none focus:border-[#2F5249]" style={{ fontFamily: "Jost", fontWeight: "500" }}
               />
 
               {/* Message */}
               <textarea
                 placeholder="Message"
                 rows="4"
-                className="w-full px-4 py-2 rounded-md bg-gray-200 border-b-2 border-orange-400 placeholder-black focus:outline-none focus:border-orange-500" style={{ fontFamily: "Jost", fontWeight: "500" }}
+                className="w-full px-4 py-2 rounded-md bg-gray-200 border-b-2 border-[#2F5249] placeholder-black focus:outline-none focus:border-[#2F5249]" style={{ fontFamily: "Jost", fontWeight: "500" }}
               ></textarea>
 
               {/* Captcha + Button */}
@@ -214,12 +214,12 @@ const ContactUs = () => {
       <input
         type="text"
         placeholder=""
-        className="w-16 px-2 py-2 rounded-md bg-gray-200 border-b-2 border-orange-400 placeholder-black focus:outline-none focus:border-orange-500"
+        className="w-16 px-2 py-2 rounded-md bg-gray-200 border-b-2 border-[#2F5249] placeholder-black focus:outline-none focus:border-[#2F5249]"
       />
     </div>
                 <button
                   type="submit"
-                  className="bg-black text-orange-500 font-semibold px-6 py-2 rounded-md border-2 text-xl border-orange-500 hover:bg-orange-500 hover:text-white transition"
+                  className="bg-[#97B067] text-[#2F5249] font-semibold px-6 py-2 rounded-md border-2 text-xl border-[#2F5249] hover:bg-[#2F5249] hover:text-white transition"
                  style={{ fontFamily: "Jost", fontWeight: "500" }}>
                   Submit
                 </button>
@@ -229,7 +229,7 @@ const ContactUs = () => {
           </div>
         </div>
       </div>
-      <div className="border-2 mx-auto mb-10 border-orange-500" style={{ position: "relative", width: "90%", height: "70vh" }}>
+      <div className="border-2 mx-auto mb-10 border-[#2F5249]" style={{ position: "relative", width: "90%", height: "70vh" }}>
         {/* Transparent overlay that opens Simplifying Skills location on click */}
         <a
           href="https://maps.app.goo.gl/coCL1BUCjUv2Vzr38"

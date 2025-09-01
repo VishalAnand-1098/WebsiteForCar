@@ -23,10 +23,10 @@ export default function AboutUsSection() {
   };
 
   const stats = [
-    { icon: <Globe className="w-10 h-10 text-orange-500" />, value: "10k+", label: "Complete Ride" },
-    { icon: <Smile className="w-10 h-10 text-orange-500" />, value: "99%", label: "Happy Customer" },
-    { icon: <FaSnowman className="w-10 h-10 text-orange-500" />, value: "450+", label: "Holidays" },
-    { icon: <Car className="w-10 h-10 text-orange-500" />, value: "600+", label: "Cars" },
+    { icon: <Globe className="w-10 h-10 text-[#2F5249]" />, value: "10k+", label: "Complete Ride" },
+    { icon: <Smile className="w-10 h-10 text-[#2F5249]" />, value: "99%", label: "Happy Customer" },
+    { icon: <FaSnowman className="w-10 h-10 text-[#2F5249]" />, value: "450+", label: "Holidays" },
+    { icon: <Car className="w-10 h-10 text-[#2F5249]" />, value: "600+", label: "Cars" },
   ];
 
   const team = [
@@ -227,8 +227,8 @@ export default function AboutUsSection() {
             </div>
 
             {/* Orange footer */}
-            <div className="bg-orange-500 text-white p-4 text-center min-h-[160px] flex flex-col justify-center">
-  <h3 className="text-3xl text-black font-semibold" style={{ fontFamily: "Jost", fontWeight: "500" }}>
+            <div className="bg-[#2F5249] text-white p-4 text-center min-h-[160px] flex flex-col justify-center">
+  <h3 className="text-3xl text-[#E3DE61] font-semibold" style={{ fontFamily: "Jost", fontWeight: "500" }}>
     {member.name}
   </h3>
   <p className="text-lg" style={{ fontFamily: "Jost", fontWeight: "500" }}>
@@ -247,7 +247,7 @@ export default function AboutUsSection() {
         {stats.map((stat, index) => (
           <div
             key={index}
-            className="flex items-center gap-3 bg-gray-300 rounded-xl md:rounded-2xl shadow-md px-4 py-3 w-full max-w-xs md:w-64 hover:shadow-lg transition"
+            className="flex text-[] items-center gap-3 bg-gray-300 rounded-xl md:rounded-2xl shadow-md px-4 py-3 w-full max-w-xs md:w-64 hover:shadow-lg transition"
           >
             {stat.icon}
             <div>

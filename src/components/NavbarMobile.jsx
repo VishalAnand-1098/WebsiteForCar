@@ -47,7 +47,7 @@ const HeaderMobile = () => {
         <Box
           sx={{
             flex: 1,
-            backgroundColor: "#f97316",
+            backgroundColor: "#2F5249",
             display: "flex",
             alignItems: "center",
             px: 1.5,
@@ -67,7 +67,7 @@ const HeaderMobile = () => {
         {/* Right Blue */}
         <Box
           sx={{
-            backgroundColor: "#075985",
+            backgroundColor: "#97B067",
             display: "flex",
             alignItems: "center",
             px: 1.5,

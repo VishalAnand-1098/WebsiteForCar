@@ -220,7 +220,7 @@ const Footer = () => {
             <Grid item xs={12} md={6}>
               <Typography variant="body2" sx={{ color: "white" }}>
                 Copyright © 2025{" "}
-                <b>Shubh Trip Travels Cab Service</b> All Rights Reserved 
+                <b>Softcareweb / Million$Growth</b> All Rights Reserved 
               </Typography>
             </Grid>
 

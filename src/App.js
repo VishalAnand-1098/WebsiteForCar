@@ -5,6 +5,7 @@ import AboutUs from './components/AboutUs';
 import ContactUs from './components/ContactUs';
 import HomePage from './components/Homepage/Homepage';
 import Blogs from './components/Blogs';
+import Onewaycabs from './components/Homepage/Onewaycabs';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
         {/* <Route path="/" element={<Homepage />} /> */}
         <Route path="/aboutUs" element={<AboutUs />} />
           <Route path="/" element={<HomePage />} />
+          <Route path="/Onewaycabs" element={<Onewaycabs />} />
           {/* Add other routes as needed */}
         <Route path="/contact" element={<ContactUs />} />
         <Route path="/blogs" element={<Blogs />} />

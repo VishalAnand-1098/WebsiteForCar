@@ -17,6 +17,12 @@ import LuggageIcon from "@mui/icons-material/Luggage";
 import PhoneIcon from "@mui/icons-material/Phone";
 import EmailIcon from "@mui/icons-material/Email";
 
+import Dzire from "../../assets/maruti_Dzire.webp";
+import Ertiga from "../../assets/ERTIGA_black.webp";
+import Innova from "../../assets/toyota_Innova.webp";
+import Etios from "../../assets/etioscar.png";
+import Xcent from "../../assets/hundai_Xcent.png";
+
 // Fleet Data
 const fleets = [
   {
@@ -25,7 +31,7 @@ const fleets = [
     seats: 5,
     luggage: "YES",
     desc: "Dezire Cab provides cost-effective taxi services that are both dependable and budget-friendly.",
-    img: "https://imgd.aeplcdn.com/1056x594/cw/ec/40089/Maruti-Swift-Dzire-Exterior-169992.jpg",
+    img: Dzire,
   },
   {
     name: "Toyota Etios",
@@ -33,7 +39,7 @@ const fleets = [
     seats: 5,
     luggage: "YES",
     desc: "Planning a trip across India? The Toyota Etios makes a smart travel companion thanks to its dependable performance, spacious interior, and budget-friendly rates.",
-    img: "https://imgd.aeplcdn.com/1056x594/cw/ec/25410/Toyota-Etios-Exterior-169996.jpg",
+    img: Etios,
   },
   {
     name: "Maruti Ertiga",
@@ -41,7 +47,7 @@ const fleets = [
     seats: 7,
     luggage: "YES",
     desc: "Known for its popularity among taxi operators in India, the Maruti Suzuki Ertiga stands out as a reliable choice.",
-    img: "https://imgd.aeplcdn.com/1056x594/cw/ec/40095/Maruti-Ertiga-Exterior-169991.jpg",
+    img: Ertiga,
   },
   {
     name: "Toyota Innova Crysta",
@@ -49,7 +55,7 @@ const fleets = [
     seats: 7,
     luggage: "YES",
     desc: "Perfect for long-distance travel, the Toyota Innova Crysta offers spacious and relaxing seating for seven passengers.",
-    img: "https://imgd.aeplcdn.com/1056x594/cw/ec/35295/Toyota-Innova-Crysta-Exterior-169997.jpg",
+    img: Innova,
   },
   {
     name: "Hyundai Xcent",
@@ -57,7 +63,7 @@ const fleets = [
     seats: 5,
     luggage: "YES",
     desc: "A compact sedan ideal for city rides, offering comfort and efficiency at affordable rates.",
-    img: "https://imgd.aeplcdn.com/1056x594/cw/ec/23516/Hyundai-Xcent-Exterior-169993.jpg",
+    img: Xcent,
   },
 ];
 
@@ -74,17 +80,11 @@ const FleetScroller = () => {
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 3500,
-    centerMode: isXs, // only enable centerMode on mobile
+    centerMode: isXs,
     centerPadding: "0px",
     responsive: [
-      {
-        breakpoint: 1280,
-        settings: { slidesToShow: 3, centerMode: false },
-      },
-      {
-        breakpoint: 900,
-        settings: { slidesToShow: 2, centerMode: false },
-      },
+      { breakpoint: 1280, settings: { slidesToShow: 3, centerMode: false } },
+      { breakpoint: 900, settings: { slidesToShow: 2, centerMode: false } },
       {
         breakpoint: 600,
         settings: { slidesToShow: 1, centerMode: true, centerPadding: "0px" },
@@ -97,25 +97,21 @@ const FleetScroller = () => {
       <Typography
         variant={isXs ? "h5" : "h4"}
         align="center"
-        sx={{
-          mb: 2,
-          fontWeight: "bold",
-          color: "#222",
-          px: 2,
-        }}
+        sx={{ mb: 2, fontWeight: "bold", color: "#222", px: 2 }}
       >
         Our Fleets of{" "}
-        <Box component="span" sx={{ color: "orange" }}>
+        <Box component="span" sx={{ color: "#2F5249" }}>
           Cabs
         </Box>
       </Typography>
+
       <Divider
         sx={{
           width: 200,
           mx: "auto",
           mb: 5,
           borderBottomWidth: 3,
-          borderColor: "orange",
+          borderColor: "#2F5249",
         }}
       />
 
@@ -124,7 +120,7 @@ const FleetScroller = () => {
           <Box
             key={index}
             sx={{
-              px: 0, // no horizontal padding on mobile to avoid side gaps
+              px: 0,
               display: "flex",
               justifyContent: "center",
               alignItems: "center",
@@ -142,11 +138,8 @@ const FleetScroller = () => {
                 flexDirection: "column",
                 justifyContent: "space-between",
                 transition: "transform 0.3s ease, box-shadow 0.3s ease",
-                "&:hover": {
-                  transform: "translateY(-8px)",
-                  boxShadow: 8,
-                },
-                margin: "0 auto", // center card itself
+                "&:hover": { transform: "translateY(-8px)", boxShadow: 8 },
+                margin: "0 auto",
               }}
             >
               <Box
@@ -192,17 +185,17 @@ const FleetScroller = () => {
                   }}
                 >
                   <Box sx={{ textAlign: "center", minWidth: 60 }}>
-                    <DirectionsCarIcon sx={{ color: "orange", mb: 0.5 }} />
+                    <DirectionsCarIcon sx={{ color: "#2F5249", mb: 0.5 }} />
                     <Typography variant="caption">{car.type}</Typography>
                   </Box>
                   <Box sx={{ textAlign: "center", minWidth: 60 }}>
                     <AirlineSeatReclineNormalIcon
-                      sx={{ color: "orange", mb: 0.5 }}
+                      sx={{ color: "#2F5249", mb: 0.5 }}
                     />
                     <Typography variant="caption">{car.seats} Seats</Typography>
                   </Box>
                   <Box sx={{ textAlign: "center", minWidth: 60 }}>
-                    <LuggageIcon sx={{ color: "orange", mb: 0.5 }} />
+                    <LuggageIcon sx={{ color: "#2F5249", mb: 0.5 }} />
                     <Typography variant="caption">{car.luggage}</Typography>
                   </Box>
                 </Box>
@@ -221,29 +214,46 @@ const FleetScroller = () => {
               </CardContent>
 
               <CardActions sx={{ gap: 1, p: 1.5 }}>
+                {/* WhatsApp Button */}
                 <Button
                   fullWidth
                   size="small"
                   sx={{
-                    bgcolor: "orange",
+                    bgcolor: "#2F5249",
                     color: "white",
-                    "&:hover": { bgcolor: "#e69500" },
+                    "&:hover": { bgcolor: "#437057" },
                     fontSize: isXs ? "0.75rem" : "0.875rem",
                   }}
                   startIcon={<PhoneIcon />}
+                  onClick={() =>
+                    window.open(
+                      "https://wa.me/917303538650?text=Hello%2C%20I%20want%20to%20book%20a%20cab",
+                      "_blank"
+                    )
+                  }
                 >
                   Call
                 </Button>
+
+                {/* Gmail Button */}
                 <Button
                   fullWidth
                   size="small"
                   sx={{
-                    bgcolor: "black",
+                    bgcolor: "#97B067",
                     color: "white",
-                    "&:hover": { bgcolor: "#333" },
+                    "&:hover": { bgcolor: "#E3DE61" },
                     fontSize: isXs ? "0.75rem" : "0.875rem",
                   }}
                   startIcon={<EmailIcon />}
+                  onClick={() => {
+                    const subject = encodeURIComponent(`Cab Booking: ${car.name}`);
+                    const body = encodeURIComponent(`Hello,\n\nI would like to book the ${car.name} cab.\n\nPlease let me know the availability and price.\n\nThank you.`);
+                    window.open(
+                      `https://mail.google.com/mail/?view=cm&fs=1&to=shubhtriptravel@gmail.com&su=${subject}&body=${body}`,
+                      "_blank"
+                    );
+                  }}
                 >
                   Email
                 </Button>

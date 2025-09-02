@@ -1,21 +1,25 @@
 import React, { useState, useEffect, useRef } from "react";
+import { useNavigate } from "react-router-dom";
 import Massorie from "../../assets/Mussoorie.webp";
 import Rishikesh from "../../assets/Rishikesh.webp";
 import Haridwar from "../../assets/Haridwar.webp";
 import Jaipur from "../../assets/jaipur.webp";
 
 const slides = [
-  { img: Haridwar, title: "Delhi to Haridwar" },
-  { img: Massorie, title: "Delhi to Mussoorie" },
-  { img: Rishikesh, title: "Delhi to Rishikesh" },
-  { img: Jaipur, title: "Delhi to Jaipur" },
+  { img: Haridwar, title: "Delhi to Haridwar", path: "/Onewaycabs" },
+  { img: Massorie, title: "Delhi to Mussoorie", path: "/Onewaycabs" },
+  { img: Rishikesh, title: "Delhi to Rishikesh", path: "/Onewaycabs" },
+  { img: Jaipur, title: "Delhi to Jaipur", path: "/Onewaycabs" },
 ];
 
 export default function TaxiSlider() {
-  const visibleSlides = 4;
-  const slideWidth = 300; // fixed width in px
+  const visibleSlidesDesktop = 4;
+  const visibleSlidesMobile = 1;
+  const slideWidthDesktop = 300;
+  const slideWidthMobile = 260;
   const [current, setCurrent] = useState(0);
   const timeoutRef = useRef(null);
+  const navigate = useNavigate();
 
   const loopSlides = [...slides, ...slides, ...slides];
 
@@ -33,48 +37,87 @@ export default function TaxiSlider() {
 
   const prevSlide = () => {
     setCurrent((prev) =>
-      prev <= 0 ? loopSlides.length - visibleSlides : prev - 1
+      prev <= 0 ? loopSlides.length - getVisibleSlides() : prev - 1
     );
   };
 
   const nextSlide = () => {
     setCurrent((prev) =>
-      prev >= loopSlides.length - visibleSlides ? 0 : prev + 1
+      prev >= loopSlides.length - getVisibleSlides() ? 0 : prev + 1
     );
   };
+
+  const getVisibleSlides = () =>
+    window.innerWidth < 768 ? visibleSlidesMobile : visibleSlidesDesktop;
+  const getSlideWidth = () =>
+    window.innerWidth < 768 ? slideWidthMobile : slideWidthDesktop;
+
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  useEffect(() => {
+    const handleResize = () => setWindowWidth(window.innerWidth);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  const arrowHoverStyle = {
+    backgroundColor: "#2F5249", // orange with opacity
+    color: "white",
+  };
+
+  const arrowBaseStyle = (side) => ({
+    position: "absolute",
+    [side]: "5px",
+    top: "50%",
+    transform: "translateY(-50%)",
+    backgroundColor: "rgba(255,255,255,0.3)", // transparent white
+    border: "none",
+    borderRadius: "50%",
+    width: windowWidth < 768 ? "35px" : "45px",
+    height: windowWidth < 768 ? "35px" : "45px",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    fontSize: windowWidth < 768 ? "20px" : "24px",
+    cursor: "pointer",
+    boxShadow: "0 2px 6px rgba(0,0,0,0.2)",
+    zIndex: 10,
+    transition: "all 0.3s ease",
+  });
 
   return (
     <div style={{ maxWidth: "1300px", margin: "auto", padding: "20px" }}>
       {/* Heading */}
-      <h2 style={{ textAlign: "center", fontSize: "28px", marginBottom: "8px" }}>
-        Taxi Service in <span style={{ color: "orange" }}>Delhi for Outstation</span>
+      <h2
+        style={{
+          textAlign: "center",
+          fontSize: windowWidth < 768 ? "22px" : "28px",
+          marginBottom: "8px",
+        }}
+      >
+        Taxi Service in{" "}
+        <span style={{ color: "#2F5249" }}>Delhi for Outstation</span>
       </h2>
       <p
         style={{
           textAlign: "center",
           maxWidth: "750px",
           margin: "auto",
-          fontSize: "16px",
+          fontSize: windowWidth < 768 ? "14px" : "16px",
         }}
       >
-        You can now book a taxi service in Delhi for outstation trips,
-        including weekend getaways to nearby destinations. We cover all popular
-        tourist spots in North India and ensure top-notch service to make your
-        journey comfortable and enjoyable.
+        Book a taxi service in Delhi for outstation trips, including weekend
+        getaways. We cover all popular tourist spots in North India and ensure
+        top-notch service for a comfortable journey.
       </p>
 
       {/* Slider container */}
-      <div
-        style={{
-          position: "relative",
-          overflow: "hidden",
-          marginTop: "30px",
-        }}
-      >
+      <div style={{ position: "relative", overflow: "hidden", marginTop: "30px" }}>
         {/* Prev Button */}
         <button
           onClick={prevSlide}
-          style={arrowStyle("left")}
+          style={arrowBaseStyle("left")}
+          onMouseEnter={(e) => Object.assign(e.target.style, arrowHoverStyle)}
+          onMouseLeave={(e) => Object.assign(e.target.style, arrowBaseStyle("left"))}
         >
           &#10094;
         </button>
@@ -84,26 +127,28 @@ export default function TaxiSlider() {
           style={{
             display: "flex",
             transition: "transform 0.5s ease",
-            transform: `translateX(-${current * (slideWidth + 16)}px)`, // shift based on px + padding
-            width: "auto",
+            transform: `translateX(-${current * (getSlideWidth() + 16)}px)`,
           }}
         >
           {loopSlides.map((slide, index) => (
             <div
               key={index}
               style={{
-                flex: `0 0 ${slideWidth}px`, // fixed width
+                flex: `0 0 ${getSlideWidth()}px`,
                 padding: "0 8px",
                 boxSizing: "border-box",
+                cursor: "pointer",
               }}
+              onClick={() => navigate(slide.path)}
             >
               <div
                 style={{
                   position: "relative",
                   borderRadius: "12px",
                   overflow: "hidden",
-                  height: "420px",
-                  boxShadow: "0 2px 6px rgba(0,0,0,0.15)",
+                  height: windowWidth < 768 ? "300px" : "420px",
+                  boxShadow: "0 4px 12px rgba(0,0,0,0.2)",
+                  transition: "transform 0.3s, box-shadow 0.3s",
                 }}
               >
                 <img
@@ -113,6 +158,7 @@ export default function TaxiSlider() {
                     width: "100%",
                     height: "100%",
                     objectFit: "cover",
+                    transition: "transform 0.3s",
                   }}
                 />
                 {/* Overlay title bar */}
@@ -121,15 +167,27 @@ export default function TaxiSlider() {
                     position: "absolute",
                     bottom: 0,
                     width: "100%",
-                    backgroundColor: "rgba(0,0,0,0.7)",
-                    padding: "10px 0",
+                    background: "linear-gradient(to top, rgba(0,0,0,0.8), transparent)",
+                    padding: "12px 0",
                     textAlign: "center",
                   }}
                 >
-                  <div style={{ color: "orange", fontWeight: "bold" }}>
+                  <div
+                    style={{
+                      color: "orange",
+                      fontWeight: "bold",
+                      fontSize: windowWidth < 768 ? "14px" : "16px",
+                    }}
+                  >
                     {slide.title}
                   </div>
-                  <div style={{ color: "white", fontSize: "0.9rem" }}>
+                  <div
+                    style={{
+                      color: "white",
+                      fontSize: windowWidth < 768 ? "12px" : "14px",
+                      marginTop: "2px",
+                    }}
+                  >
                     Read More
                   </div>
                 </div>
@@ -141,7 +199,9 @@ export default function TaxiSlider() {
         {/* Next Button */}
         <button
           onClick={nextSlide}
-          style={arrowStyle("right")}
+          style={arrowBaseStyle("right")}
+          onMouseEnter={(e) => Object.assign(e.target.style, arrowHoverStyle)}
+          onMouseLeave={(e) => Object.assign(e.target.style, arrowBaseStyle("right"))}
         >
           &#10095;
         </button>
@@ -149,22 +209,3 @@ export default function TaxiSlider() {
     </div>
   );
 }
-
-const arrowStyle = (side) => ({
-  position: "absolute",
-  [side]: "-20px",
-  top: "50%",
-  transform: "translateY(-50%)",
-  backgroundColor: "white",
-  border: "1px solid #ccc",
-  borderRadius: "50%",
-  width: "36px",
-  height: "36px",
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "center",
-  fontSize: "20px",
-  cursor: "pointer",
-  boxShadow: "0 2px 5px rgba(0,0,0,0.2)",
-  zIndex: 10,
-});

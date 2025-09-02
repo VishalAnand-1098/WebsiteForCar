@@ -1,12 +1,12 @@
 import React from "react";
 import {
-  Box,
   Container,
   Grid,
   Typography,
-  Link,
   IconButton,
 } from "@mui/material";
+import { Box, Link } from "@mui/material";
+import { Link as RouterLink } from "react-router-dom"
 import PlaceOutlinedIcon from "@mui/icons-material/PlaceOutlined";
 import MailOutlineIcon from "@mui/icons-material/MailOutline";
 import PhoneAndroidOutlinedIcon from "@mui/icons-material/PhoneAndroidOutlined";
@@ -121,20 +121,44 @@ const Footer = () => {
             <Typography variant="h6" gutterBottom>
               Quick Links
             </Typography>
-            <Box>
-              <Link href="#" color="inherit" display="block" underline="hover">
-                ▶ Home
-              </Link>
-              <Link href="#" color="inherit" display="block" underline="hover">
-                ▶ About Us
-              </Link>
-              <Link href="#" color="inherit" display="block" underline="hover">
-                ▶ Contact Us
-              </Link>
-              <Link href="#" color="inherit" display="block" underline="hover">
-                ▶ Privacy Policy
-              </Link>
-            </Box>
+             <Box>
+      <Link
+        component={RouterLink}
+        to="/"
+        color="inherit"
+        display="block"
+        underline="hover"
+      >
+        ▶ Home
+      </Link>
+      <Link
+        component={RouterLink}
+        to="/aboutus"
+        color="inherit"
+        display="block"
+        underline="hover"
+      >
+        ▶ About Us
+      </Link>
+      <Link
+        component={RouterLink}
+        to="/contact"
+        color="inherit"
+        display="block"
+        underline="hover"
+      >
+        ▶ Contact Us
+      </Link>
+      {/* <Link
+        component={RouterLink}
+        to="/privacy-policy"
+        color="inherit"
+        display="block"
+        underline="hover"
+      >
+        ▶ Privacy Policy
+      </Link> */}
+    </Box>
           </Grid>
 
           <Grid item xs={12} md={3}>

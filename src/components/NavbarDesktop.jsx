@@ -7,11 +7,13 @@ import {
   Link,
   Container,
 } from "@mui/material";
+import { Link as RouterLink } from "react-router-dom";
 import PhoneIphoneIcon from "@mui/icons-material/PhoneIphone";
 import EmailIcon from "@mui/icons-material/Email";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import YouTubeIcon from "@mui/icons-material/YouTube";
+import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import logo from "../assets/Ghumi.png";
 
 const Header = () => {
@@ -22,7 +24,6 @@ const Header = () => {
   useEffect(() => {
     const handleScroll = () => {
       const scrollY = window.scrollY;
-
       if (scrollY > 60) {
         setShowTopBar(false);
         setIsSticky(true);
@@ -30,18 +31,24 @@ const Header = () => {
         setShowTopBar(true);
         setIsSticky(false);
       }
-
-      // gradually shift white -> dark gray
-      const progress = Math.min(scrollY / 300, 1); // clamp between 0–1
-      const grayValue = 255 - progress * 120; // from 255 (white) down to 75 (dark gray)
+      const progress = Math.min(scrollY / 300, 1);
+      const grayValue = 255 - progress * 120;
       setBgColor(`[#97B067]`);
     };
-
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const navbarHeight = isSticky ? 70 : 90;
+
+  const navLinks = {
+    Home: "/",
+    "One Way Cabs": "/onewaycabs",
+    "Round Trip Cabs": "/onewaycabs",
+    "About Us": "/aboutus",
+    Contact: "/contact",
+    Blogs: "/blogs",
+  };
 
   return (
     <Box sx={{ width: "100%", fontFamily: "Arial, sans-serif" }}>
@@ -78,7 +85,6 @@ const Header = () => {
               shubhtriptravel@gmail.com
             </Typography>
           </Box>
-
           {/* Right blue */}
           <Box
             sx={{
@@ -91,32 +97,33 @@ const Header = () => {
               transition: "all 0.4s ease-in-out",
             }}
           >
-           {/* Facebook */}
-      <a 
-        href="https://www.facebook.com/share/14DmCBSZ6UY/" 
-        target="_blank" 
-        rel="noopener noreferrer"
-      >
-        <FacebookIcon sx={{ fontSize: 18, cursor: "pointer", color: "#1877F2" }} />
-      </a>
-
-      {/* Instagram */}
-      <a 
-        href="https://www.instagram.com/p/DMuUibqJYQT/?igsh=MWI1bnE5ODZpeW03Zg==" 
-        target="_blank" 
-        rel="noopener noreferrer"
-      >
-        <InstagramIcon sx={{ fontSize: 18, cursor: "pointer", color: "#E4405F" }} />
-      </a>
-
-      {/* YouTube */}
-      <a 
-        href="https://www.youtube.com/@ShubhTriptravel" 
-        target="_blank" 
-        rel="noopener noreferrer"
-      >
-        <YouTubeIcon sx={{ fontSize: 18, cursor: "pointer", color: "#FF0000" }} />
-      </a>
+            <a
+              href="https://www.facebook.com/share/14DmCBSZ6UY/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FacebookIcon
+                sx={{ fontSize: 18, cursor: "pointer", color: "#1877F2" }}
+              />
+            </a>
+            <a
+              href="https://www.instagram.com/p/DMuUibqJYQT/?igsh=MWI1bnE5ODZpeW03Zg=="
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <InstagramIcon
+                sx={{ fontSize: 18, cursor: "pointer", color: "#E4405F" }}
+              />
+            </a>
+            <a
+              href="https://www.youtube.com/@ShubhTriptravel"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <YouTubeIcon
+                sx={{ fontSize: 18, cursor: "pointer", color: "#FF0000" }}
+              />
+            </a>
           </Box>
         </Box>
       </Box>
@@ -126,7 +133,7 @@ const Header = () => {
         enableColorOnDark
         position={isSticky ? "fixed" : "static"}
         sx={{
-          backgroundColor: bgColor + " !important", // force apply
+          backgroundColor: bgColor + " !important",
           color: "#000",
           boxShadow: isSticky ? "0 2px 10px rgba(0,0,0,0.15)" : "none",
           borderBottom: isSticky ? "1px solid #e5e5e5" : "none",
@@ -148,16 +155,18 @@ const Header = () => {
           >
             {/* LOGO */}
             <Box sx={{ display: "flex", alignItems: "center" }}>
-              <img
-                src={logo}
-                alt="Logo"
-                style={{
-                  height: isSticky ? "55px" : "70px",
-                  borderRadius: "12px",
-                  display: "block",
-                  transition: "all 0.4s ease-in-out",
-                }}
-              />
+              <RouterLink to="/">
+                <img
+                  src={logo}
+                  alt="Logo"
+                  style={{
+                    height: isSticky ? "55px" : "70px",
+                    borderRadius: "12px",
+                    display: "block",
+                    transition: "all 0.4s ease-in-out",
+                  }}
+                />
+              </RouterLink>
             </Box>
 
             {/* NAVIGATION */}
@@ -173,14 +182,10 @@ const Header = () => {
                 mx: 5,
               }}
             >
-              {["Home", "About Us", "Contact","Blogs"].map((item, index) => (
+              {Object.entries(navLinks).map(([label, path], index) => (
                 <Link
                   key={index}
-                  href={
-                    item === "Home"
-                      ? "/"
-                      : `/${item.replace(/\s+/g, "").toLowerCase()}`
-                  }
+                  href={path}
                   underline="none"
                   sx={{
                     fontSize: "16px",
@@ -190,9 +195,55 @@ const Header = () => {
                     "&:hover": { color: "#2F5249" },
                   }}
                 >
-                  {item}
+                  {label}
                 </Link>
               ))}
+            </Box>
+
+            {/* WHATSAPP BUTTON */}
+            <Box sx={{ ml: 2 }}>
+              <a
+                href="https://wa.me/917303538650?text=Hello%2C%20I%20would%20like%20to%20book%20a%20cab.%20Please%20provide%20me%20with%20the%20available%20options."
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{ textDecoration: "none" }}
+              >
+                <Box
+                  sx={{
+                    backgroundColor: "#f97316",
+                    color: "#fff",
+                    px: 2, // 👈 pehle chhoti width
+                    py: 1.2,
+                    borderRadius: "4px",
+                    fontWeight: "bold",
+                    fontSize: "16px",
+                    display: "flex",
+                    alignItems: "center",
+                    gap: 0.5,
+                    cursor: "pointer",
+                    transition: "all 0.3s ease-in-out",
+                    "&:hover": {
+                      px: 4.5, // 👈 hover pe expand
+                      gap: 1.5,
+                      "& .arrow-icon": {
+                        opacity: 1,
+                        transform: "translateX(0)",
+                      },
+                    },
+                  }}
+                >
+                  Call Me Now
+                  <ArrowForwardIosIcon
+                    className="arrow-icon"
+                    sx={{
+                      fontSize: 20,
+                      opacity: 0,
+                      transform: "translateX(-8px)",
+                      transition: "all 0.3s ease-in-out",
+                    }}
+                  />
+                </Box>
+              </a>
             </Box>
           </Toolbar>
         </Container>

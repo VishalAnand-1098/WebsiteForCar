@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -6,67 +6,90 @@ import BookTexi from "./Booktexi";
 
 import manali from "../../assets/manali.jpg";
 import vrindavan from "../../assets/vrindavan.jpeg";
+import jaipur from "../../assets/jaipurcity.jpg";
+import rishikesh from "../../assets/Rishikeshcity.avif";
+import mussoorie from "../../assets/masooricity.jpg";
+import agra from "../../assets/agracity.jpg";
+import ayodhya from "../../assets/ayodhyacity.jpg";
 
-const NextArrow = ({ onClick, visible }) => (
-  <div
-    style={{
-      position: "absolute",
-      right: "15px",
-      top: "50%",
-      transform: "translateY(-50%)",
-      background: "rgba(255,255,255,0.8)",
-      borderRadius: "50%",
-      padding: "10px",
-      cursor: "pointer",
-      zIndex: 3,
-      fontSize: "20px",
-      userSelect: "none",
-      opacity: visible ? 1 : 0,
-      transition: "opacity 0.3s ease",
-    }}
-    onClick={onClick}
-  >
-    ➡
-  </div>
-);
-
-const PrevArrow = ({ onClick, visible }) => (
-  <div
-    style={{
-      position: "absolute",
-      left: "15px",
-      top: "50%",
-      transform: "translateY(-50%)",
-      background: "rgba(255,255,255,0.8)",
-      borderRadius: "50%",
-      padding: "10px",
-      cursor: "pointer",
-      zIndex: 3,
-      fontSize: "20px",
-      userSelect: "none",
-      opacity: visible ? 1 : 0,
-      transition: "opacity 0.3s ease",
-    }}
-    onClick={onClick}
-  >
-    ⬅
-  </div>
-);
-
+// ----------------- Main Carousel -----------------
 const CabCarousel = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [hover, setHover] = useState(false);
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+  // Update windowWidth on resize
+  useEffect(() => {
+    const handleResize = () => setWindowWidth(window.innerWidth);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   const slides = [
-    {
-      image: manali,
-      title: "Delhi to Manali Taxi",
-    },
-    {
-      image: vrindavan,
-      title: "Delhi to Vrindavan\nTaxi",
-    },
-  ];
+  { image: manali, title: "Delhi to Manali Taxi" },
+  { image: vrindavan, title: "Delhi to Vrindavan Taxi" },
+  { image: jaipur, title: "Delhi to Jaipur Taxi" },
+  { image: rishikesh, title: "Delhi to Rishikesh Taxi" },
+  { image: mussoorie, title: "Delhi to Mussoorie Taxi" },
+  { image: agra, title: "Delhi to Agra Taxi" },
+  { image: ayodhya, title: "Delhi to Ayodhya Taxi" },
+  // { image: delhi, title: "Delhi Local Taxi" },
+];
+
+  // ----------------- Arrow Base Style -----------------
+  const arrowBaseStyle = (side) => ({
+    position: "absolute",
+    [side]: "5px",
+    top: "50%",
+    transform: "translateY(-50%)",
+    backgroundColor: "rgba(255,255,255,0.3)", // transparent white
+    border: "none",
+    borderRadius: "50%",
+    width: windowWidth < 768 ? "35px" : "45px",
+    height: windowWidth < 768 ? "35px" : "45px",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    fontSize: windowWidth < 768 ? "20px" : "24px",
+    cursor: "pointer",
+    boxShadow: "0 2px 6px rgba(0,0,0,0.2)",
+    zIndex: 10,
+    opacity: hover ? 1 : 0,
+    transition: "all 0.3s ease, transform 0.2s ease",
+    color: "#fff",
+    userSelect: "none",
+  });
+
+  // ----------------- Arrow Components -----------------
+  const NextArrow = ({ onClick }) => (
+    <div
+      style={arrowBaseStyle("right")}
+      onClick={onClick}
+      onMouseEnter={(e) =>
+        (e.currentTarget.style.transform = "translateY(-50%) scale(1.2)")
+      }
+      onMouseLeave={(e) =>
+        (e.currentTarget.style.transform = "translateY(-50%) scale(1)")
+      }
+    >
+      &#10095;
+    </div>
+  );
+
+  const PrevArrow = ({ onClick }) => (
+    <div
+      style={arrowBaseStyle("left")}
+      onClick={onClick}
+      onMouseEnter={(e) =>
+        (e.currentTarget.style.transform = "translateY(-50%) scale(1.2)")
+      }
+      onMouseLeave={(e) =>
+        (e.currentTarget.style.transform = "translateY(-50%) scale(1)")
+      }
+    >
+      &#10094;
+    </div>
+  );
 
   const settings = {
     dots: false,
@@ -75,8 +98,8 @@ const CabCarousel = () => {
     slidesToShow: 1,
     slidesToScroll: 1,
     arrows: true,
-    nextArrow: <NextArrow visible={hover} />,
-    prevArrow: <PrevArrow visible={hover} />,
+    nextArrow: <NextArrow />,
+    prevArrow: <PrevArrow />,
     autoplay: true,
     autoplaySpeed: 5000,
     beforeChange: (_, newIndex) => setCurrentSlide(newIndex),
@@ -86,7 +109,7 @@ const CabCarousel = () => {
     <div
       style={{
         position: "relative",
-        width: "100%",  // changed from 100vw
+        width: "100%",
         height: "90vh",
         minHeight: "350px",
         overflow: "hidden",
@@ -113,7 +136,7 @@ const CabCarousel = () => {
 
       {/* Animated overlay box */}
       <div
-        key={currentSlide} // forces animation restart
+        key={currentSlide}
         style={{
           position: "absolute",
           top: "20%",
@@ -161,6 +184,8 @@ const CabCarousel = () => {
           {slides[currentSlide].title}
         </h1>
       </div>
+
+      {/* BookTaxi Component */}
       <div
         style={{
           position: "absolute",
@@ -175,18 +200,11 @@ const CabCarousel = () => {
         <BookTexi />
       </div>
 
-      {/* Keyframes for sliding animation */}
       <style>
         {`
           @keyframes slideUp {
-            0% {
-              opacity: 0;
-              transform: translate(-50%, 50%);
-            }
-            100% {
-              opacity: 1;
-              transform: translate(-50%, -50%);
-            }
+            0% { opacity: 0; transform: translate(-50%, 50%); }
+            100% { opacity: 1; transform: translate(-50%, -50%); }
           }
         `}
       </style>

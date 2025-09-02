@@ -48,7 +48,7 @@ const TypesOfCabExtended = () => {
   };
 
   const headerStyle = {
-    backgroundColor: "#FF7A2F",
+    backgroundColor: "#2F5249",
     color: "white",
     fontWeight: "700",
     fontSize: "18px",
@@ -125,7 +125,7 @@ const TypesOfCabExtended = () => {
           td::before {
             content: attr(data-label);
             font-weight: 600;
-            color: #FF7A2F;
+            color: #2F5249;
             margin-bottom: 5px;
             font-size: 13px;
             white-space: normal !important;
@@ -224,8 +224,8 @@ const TypesOfCabExtended = () => {
       >
         <span
           style={{
-            color: '#ff7c1f',
-            borderBottom: '3px solid #ff7c1f',
+            color: '#2F5249',
+            borderBottom: '3px solid #2F5249',
             paddingBottom: '5px',
           }}
         >

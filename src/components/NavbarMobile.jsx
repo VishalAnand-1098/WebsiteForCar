@@ -10,6 +10,7 @@ import {
   ListItem,
   ListItemText,
   Divider,
+  Button,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import PhoneIphoneIcon from "@mui/icons-material/PhoneIphone";
@@ -17,6 +18,7 @@ import EmailIcon from "@mui/icons-material/Email";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import YouTubeIcon from "@mui/icons-material/YouTube";
+import { Link } from "react-router-dom";
 import logo from "../assets/Ghumi.png";
 
 const HeaderMobile = () => {
@@ -28,6 +30,8 @@ const HeaderMobile = () => {
 
   const menuItems = [
     { text: "Home", link: "/" },
+    { text: "One Way Cabs", link: "/onewaycabs" },
+    { text: "Round Trip Cabs", link: "/roundtripcabs" },
     { text: "About Us", link: "/aboutus" },
     { text: "Contact", link: "/contact" },
     { text: "Blogs", link: "/blogs" },
@@ -38,7 +42,7 @@ const HeaderMobile = () => {
       sx={{
         width: "100%",
         fontFamily: "Arial, sans-serif",
-        overflowX: "hidden", // ✅ Prevent horizontal scroll
+        overflowX: "hidden",
       }}
     >
       {/* ===== TOP STRIP ===== */}
@@ -53,7 +57,7 @@ const HeaderMobile = () => {
             px: 1.5,
             color: "#fff",
             gap: 1,
-            minWidth: 0, // ✅ prevent flex text overflow
+            minWidth: 0,
           }}
         >
           <PhoneIphoneIcon sx={{ fontSize: 15 }} />
@@ -72,7 +76,7 @@ const HeaderMobile = () => {
             alignItems: "center",
             px: 1.5,
             gap: 1,
-            flexShrink: 0, // ✅ stops overflowing
+            flexShrink: 0,
           }}
         >
           <a
@@ -119,31 +123,61 @@ const HeaderMobile = () => {
         >
           {/* Logo */}
           <Box sx={{ display: "flex", alignItems: "center" }}>
-            <img
-              src={logo}
-              alt="Logo"
-              style={{
-                height: "50px", // control only height
-                width: "auto", // prevent distortion
-                borderRadius: "10px",
-                display: "block",
-              }}
-            />
+            <Link to="/">
+              <img
+                src={logo}
+                alt="Logo"
+                style={{
+                  height: "50px",
+                  width: "auto",
+                  borderRadius: "10px",
+                  display: "block",
+                  cursor: "pointer",
+                }}
+              />
+            </Link>
           </Box>
 
-          {/* Hamburger Menu */}
-          <IconButton
-            edge="end"
-            onClick={toggleDrawer(true)}
-            size="small"
-            sx={{
-              p: 0.5,
-              width: 36,
-              height: 36,
-            }}
-          >
-            <MenuIcon sx={{ color: "#075985", fontSize: 24 }} />
-          </IconButton>
+          {/* Right Side: Button + Hamburger */}
+          <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
+            {/* WhatsApp CTA Button */}
+            <Button
+              component="a"
+              href={`https://wa.me/917303538650?text=${encodeURIComponent(
+                "Hello, I would like to book a cab. Please share the details."
+              )}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              variant="contained"
+              size="small"
+              sx={{
+                backgroundColor: "#f97316",
+                color: "#fff",
+                textTransform: "none",
+                fontWeight: 600,
+                fontSize: "14px",
+                borderRadius: "20px",
+                px: 2,
+                "&:hover": { backgroundColor: "#ea580c" },
+              }}
+            >
+              Book Now
+            </Button>
+
+            {/* Hamburger Menu */}
+            <IconButton
+              edge="end"
+              onClick={toggleDrawer(true)}
+              size="small"
+              sx={{
+                p: 0.5,
+                width: 36,
+                height: 36,
+              }}
+            >
+              <MenuIcon sx={{ color: "#075985", fontSize: 24 }} />
+            </IconButton>
+          </Box>
         </Toolbar>
       </AppBar>
 
@@ -151,7 +185,7 @@ const HeaderMobile = () => {
       <Drawer anchor="right" open={open} onClose={toggleDrawer(false)}>
         <Box
           sx={{
-            width: { xs: "80vw", sm: 250 }, // ✅ responsive width
+            width: { xs: "80vw", sm: 250 },
           }}
           role="presentation"
           onClick={toggleDrawer(false)}
@@ -161,8 +195,8 @@ const HeaderMobile = () => {
               <ListItem
                 button
                 key={index}
-                component="a"
-                href={item.link}
+                component={Link}
+                to={item.link}
                 sx={{
                   "&:hover": { backgroundColor: "#f5f5f5" },
                 }}
@@ -190,7 +224,7 @@ const HeaderMobile = () => {
               sx={{ display: "flex", alignItems: "center", fontSize: 14 }}
             >
               <EmailIcon sx={{ fontSize: 16, mr: 1 }} />
-              ghumighumicabservice@gmail.com
+              shubhtriptravel@gmail.com
             </Typography>
           </Box>
         </Box>

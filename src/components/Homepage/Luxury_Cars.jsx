@@ -1,14 +1,15 @@
 import React from "react";
+import { Box, Typography, Button, Card, CardMedia } from "@mui/material";
+import { useNavigate } from "react-router-dom";
+
 import weddingCar1 from "../../assets/verna.webp";
 import weddingCar2 from "../../assets/Audi.webp";
 import weddingCar3 from "../../assets/BMW.webp";
 import weddingCar4 from "../../assets/q5.webp";
-import weddingCar5 from "../../assets/Audi.webp";   // add more images
+import weddingCar5 from "../../assets/Audi.webp";
 import weddingCar6 from "../../assets/BMW.webp";
 import weddingCar7 from "../../assets/q5.webp";
 import weddingCar8 from "../../assets/verna.webp";
-
-import { Box, Typography, Button, Card, CardMedia } from "@mui/material";
 
 const cars = [
   { img: weddingCar1 },
@@ -22,34 +23,32 @@ const cars = [
 ];
 
 const WeddingCars = () => {
+  const navigate = useNavigate();
+
+  const handleBookNow = () => {
+    navigate("/contact"); // Navigate to ContactUs page
+  };
+
   return (
-    <Box
-      sx={{
-        textAlign: "center",
-        py: 5,
-        backgroundColor: "#f9f9f9",
-      }}
-    >
-      {/* Heading */}
+    <Box sx={{ textAlign: "center", py: 5, backgroundColor: "#f9f9f9" }}>
       <Typography variant="h4" sx={{ fontWeight: "bold", mb: 4 }}>
-        Luxury Cars for{" "}
-        <span style={{ color: "orange" }}>Wedding Doli</span>
+        Luxury Cars for <span style={{ color: "#2F5249" }}>Wedding Doli</span>
       </Typography>
 
-      {/* Cars Grid */}
       <Box
         sx={{
-          display: "flex",
-          justifyContent: "center",
+          display: "grid",
+          gridTemplateColumns: { xs: "1fr", sm: "1fr 1fr", md: "1fr 1fr 1fr 1fr" },
           gap: 3,
-          flexWrap: "wrap",
+          justifyContent: "center",
+          maxWidth: "1200px",
+          margin: "0 auto",
         }}
       >
         {cars.map((car, index) => (
           <Card
             key={index}
             sx={{
-              width: 260,
               height: 320,
               borderRadius: "16px",
               overflow: "hidden",
@@ -57,13 +56,9 @@ const WeddingCars = () => {
               position: "relative",
               cursor: "pointer",
               "&:hover .overlay": { opacity: 1 },
-              "&:hover .book-btn": {
-                opacity: 1,
-                transform: "translate(-50%, -50%) scale(1)",
-              },
+              "&:hover .book-btn": { opacity: 1, transform: "translate(-50%, -50%) scale(1)" },
             }}
           >
-            {/* Car Image */}
             <CardMedia
               component="img"
               image={car.img}
@@ -71,7 +66,6 @@ const WeddingCars = () => {
               sx={{ height: "100%", objectFit: "cover" }}
             />
 
-            {/* Dark Overlay */}
             <Box
               className="overlay"
               sx={{
@@ -86,10 +80,10 @@ const WeddingCars = () => {
               }}
             />
 
-            {/* Book Now Button */}
             <Button
               className="book-btn"
               variant="outlined"
+              onClick={handleBookNow} // Navigate on click
               sx={{
                 position: "absolute",
                 top: "50%",
@@ -104,12 +98,8 @@ const WeddingCars = () => {
                 borderWidth: 2,
                 borderColor: "black",
                 color: "black",
-                backgroundColor: "white",
-                "&:hover": {
-                  backgroundColor: "black",
-                  color: "white",
-                  borderColor: "black",
-                },
+                backgroundColor: "#437057",
+                "&:hover": { backgroundColor: "#2F5249", color: "white", borderColor: "black" },
               }}
             >
               Book Now

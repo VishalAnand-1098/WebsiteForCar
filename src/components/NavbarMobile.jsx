@@ -17,6 +17,7 @@ import EmailIcon from "@mui/icons-material/Email";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import YouTubeIcon from "@mui/icons-material/YouTube";
+import { Link } from "react-router-dom";
 import logo from "../assets/Ghumi.png";
 
 const HeaderMobile = () => {
@@ -28,6 +29,8 @@ const HeaderMobile = () => {
 
   const menuItems = [
     { text: "Home", link: "/" },
+    { text: "One Way Cabs", link: "/onewaycabs" },
+    { text: "Round Trip Cabs", link: "/roundtripcabs" },
     { text: "About Us", link: "/aboutus" },
     { text: "Contact", link: "/contact" },
     { text: "Blogs", link: "/blogs" },
@@ -38,7 +41,7 @@ const HeaderMobile = () => {
       sx={{
         width: "100%",
         fontFamily: "Arial, sans-serif",
-        overflowX: "hidden", // ✅ Prevent horizontal scroll
+        overflowX: "hidden",
       }}
     >
       {/* ===== TOP STRIP ===== */}
@@ -53,7 +56,7 @@ const HeaderMobile = () => {
             px: 1.5,
             color: "#fff",
             gap: 1,
-            minWidth: 0, // ✅ prevent flex text overflow
+            minWidth: 0,
           }}
         >
           <PhoneIphoneIcon sx={{ fontSize: 15 }} />
@@ -72,7 +75,7 @@ const HeaderMobile = () => {
             alignItems: "center",
             px: 1.5,
             gap: 1,
-            flexShrink: 0, // ✅ stops overflowing
+            flexShrink: 0,
           }}
         >
           <a
@@ -119,16 +122,19 @@ const HeaderMobile = () => {
         >
           {/* Logo */}
           <Box sx={{ display: "flex", alignItems: "center" }}>
-            <img
-              src={logo}
-              alt="Logo"
-              style={{
-                height: "50px", // control only height
-                width: "auto", // prevent distortion
-                borderRadius: "10px",
-                display: "block",
-              }}
-            />
+            <Link to="/">
+              <img
+                src={logo}
+                alt="Logo"
+                style={{
+                  height: "50px",
+                  width: "auto",
+                  borderRadius: "10px",
+                  display: "block",
+                  cursor: "pointer",
+                }}
+              />
+            </Link>
           </Box>
 
           {/* Hamburger Menu */}
@@ -151,7 +157,7 @@ const HeaderMobile = () => {
       <Drawer anchor="right" open={open} onClose={toggleDrawer(false)}>
         <Box
           sx={{
-            width: { xs: "80vw", sm: 250 }, // ✅ responsive width
+            width: { xs: "80vw", sm: 250 },
           }}
           role="presentation"
           onClick={toggleDrawer(false)}
@@ -161,8 +167,8 @@ const HeaderMobile = () => {
               <ListItem
                 button
                 key={index}
-                component="a"
-                href={item.link}
+                component={Link}
+                to={item.link}
                 sx={{
                   "&:hover": { backgroundColor: "#f5f5f5" },
                 }}

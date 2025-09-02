@@ -44,7 +44,7 @@ const AboutUs = () => {
               position: "relative",
               borderRadius: "20px",
               display: "inline-block",
-              boxShadow: "-10px 10px 0px #ff6600", // Orange shadow
+              boxShadow: "-10px 10px 0px #437057", // Orange shadow
               maxWidth: isMobile ? "100%" : "550px",
               width: "100%",
             }}
@@ -83,7 +83,7 @@ const AboutUs = () => {
           >
             <span
               style={{
-                borderBottom: "2px solid #ff6600",
+                borderBottom: "2px solid #2F5249",
                 paddingBottom: "2px",
                 display: "inline-block",
               }}
@@ -101,7 +101,7 @@ const AboutUs = () => {
             }}
           >
             Welcome To{" "}
-            <span style={{ color: "#ff6600" }}>Shubh Trip Travels Cab Service</span>
+            <span style={{ color: "#2F5249" }}>Shubh Trip Travels Cab Service</span>
           </h2>
 
           <p
@@ -126,12 +126,12 @@ const AboutUs = () => {
 
           <button
             style={{
-              backgroundColor: "#ff6600",
+              backgroundColor: "#2F5249",
               color: "#fff",
               fontWeight: "600",
               fontSize: "14px",
               padding: isMobile ? "10px 25px" : "8px 20px",
-              border: "2px solid #ff6600",
+              border: "2px solid #2F5249",
               borderRadius: "3px",
               cursor: "pointer",
               transition: "0.3s",
@@ -139,12 +139,12 @@ const AboutUs = () => {
               maxWidth: isMobile ? "300px" : "auto",
             }}
             onMouseOver={(e) => {
-              e.currentTarget.style.backgroundColor = "#e55a00";
-              e.currentTarget.style.borderColor = "#e55a00";
+              e.currentTarget.style.backgroundColor = "#437057";
+              e.currentTarget.style.borderColor = "#437057";
             }}
             onMouseOut={(e) => {
-              e.currentTarget.style.backgroundColor = "#ff6600";
-              e.currentTarget.style.borderColor = "#ff6600";
+              e.currentTarget.style.backgroundColor = "#2F5249";
+              e.currentTarget.style.borderColor = "#2F5249";
             }}
             onClick={() => navigate("/aboutus")}
           >
@@ -168,7 +168,7 @@ const AboutUs = () => {
             marginBottom: "20px",
           }}
         >
-          <span style={{ color: "#ff6600" }}>Taxi Service</span> in Delhi
+          <span style={{ color: "#2F5249" }}>Taxi Service</span> in Delhi
         </h2>
 
         <p

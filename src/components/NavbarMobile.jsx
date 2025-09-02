@@ -10,6 +10,7 @@ import {
   ListItem,
   ListItemText,
   Divider,
+  Button,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import PhoneIphoneIcon from "@mui/icons-material/PhoneIphone";
@@ -137,19 +138,46 @@ const HeaderMobile = () => {
             </Link>
           </Box>
 
-          {/* Hamburger Menu */}
-          <IconButton
-            edge="end"
-            onClick={toggleDrawer(true)}
-            size="small"
-            sx={{
-              p: 0.5,
-              width: 36,
-              height: 36,
-            }}
-          >
-            <MenuIcon sx={{ color: "#075985", fontSize: 24 }} />
-          </IconButton>
+          {/* Right Side: Button + Hamburger */}
+          <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
+            {/* WhatsApp CTA Button */}
+            <Button
+              component="a"
+              href={`https://wa.me/917303538650?text=${encodeURIComponent(
+                "Hello, I would like to book a cab. Please share the details."
+              )}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              variant="contained"
+              size="small"
+              sx={{
+                backgroundColor: "#f97316",
+                color: "#fff",
+                textTransform: "none",
+                fontWeight: 600,
+                fontSize: "14px",
+                borderRadius: "20px",
+                px: 2,
+                "&:hover": { backgroundColor: "#ea580c" },
+              }}
+            >
+              Book Now
+            </Button>
+
+            {/* Hamburger Menu */}
+            <IconButton
+              edge="end"
+              onClick={toggleDrawer(true)}
+              size="small"
+              sx={{
+                p: 0.5,
+                width: 36,
+                height: 36,
+              }}
+            >
+              <MenuIcon sx={{ color: "#075985", fontSize: 24 }} />
+            </IconButton>
+          </Box>
         </Toolbar>
       </AppBar>
 
@@ -196,7 +224,7 @@ const HeaderMobile = () => {
               sx={{ display: "flex", alignItems: "center", fontSize: 14 }}
             >
               <EmailIcon sx={{ fontSize: 16, mr: 1 }} />
-              ghumighumicabservice@gmail.com
+              shubhtriptravel@gmail.com
             </Typography>
           </Box>
         </Box>

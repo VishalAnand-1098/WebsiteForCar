@@ -7,12 +7,13 @@ import {
   Link,
   Container,
 } from "@mui/material";
-import { Link as RouterLink } from "react-router-dom"; // <-- Import for navigation
+import { Link as RouterLink } from "react-router-dom";
 import PhoneIphoneIcon from "@mui/icons-material/PhoneIphone";
 import EmailIcon from "@mui/icons-material/Email";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import YouTubeIcon from "@mui/icons-material/YouTube";
+import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import logo from "../assets/Ghumi.png";
 
 const Header = () => {
@@ -23,7 +24,6 @@ const Header = () => {
   useEffect(() => {
     const handleScroll = () => {
       const scrollY = window.scrollY;
-
       if (scrollY > 60) {
         setShowTopBar(false);
         setIsSticky(true);
@@ -31,13 +31,10 @@ const Header = () => {
         setShowTopBar(true);
         setIsSticky(false);
       }
-
-      // gradually shift white -> dark gray
       const progress = Math.min(scrollY / 300, 1);
       const grayValue = 255 - progress * 120;
       setBgColor(`rgb(${grayValue}, ${grayValue}, ${grayValue})`);
     };
-
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -88,7 +85,6 @@ const Header = () => {
               shubhtriptravel@gmail.com
             </Typography>
           </Box>
-
           {/* Right blue */}
           <Box
             sx={{
@@ -200,6 +196,52 @@ const Header = () => {
                   {label}
                 </Link>
               ))}
+            </Box>
+
+            {/* WHATSAPP BUTTON */}
+            <Box sx={{ ml: 2 }}>
+              <a
+                href="https://wa.me/917303538650?text=Hello%2C%20I%20would%20like%20to%20book%20a%20cab.%20Please%20provide%20me%20with%20the%20available%20options."
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{ textDecoration: "none" }}
+              >
+                <Box
+                  sx={{
+                    backgroundColor: "#f97316",
+                    color: "#fff",
+                    px: 2, // 👈 pehle chhoti width
+                    py: 1.2,
+                    borderRadius: "4px",
+                    fontWeight: "bold",
+                    fontSize: "16px",
+                    display: "flex",
+                    alignItems: "center",
+                    gap: 0.5,
+                    cursor: "pointer",
+                    transition: "all 0.3s ease-in-out",
+                    "&:hover": {
+                      px: 4.5, // 👈 hover pe expand
+                      gap: 1.5,
+                      "& .arrow-icon": {
+                        opacity: 1,
+                        transform: "translateX(0)",
+                      },
+                    },
+                  }}
+                >
+                  Call Me Now
+                  <ArrowForwardIosIcon
+                    className="arrow-icon"
+                    sx={{
+                      fontSize: 20,
+                      opacity: 0,
+                      transform: "translateX(-8px)",
+                      transition: "all 0.3s ease-in-out",
+                    }}
+                  />
+                </Box>
+              </a>
             </Box>
           </Toolbar>
         </Container>

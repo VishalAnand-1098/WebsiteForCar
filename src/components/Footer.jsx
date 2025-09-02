@@ -237,13 +237,13 @@ const Footer = () => {
               }}
             >
               <IconButton
-                href="#"
+                href=" https://www.facebook.com/share/14DmCBSZ6UY/"
                 sx={{ color: "white", bgcolor: "rgba(255,255,255,0.1)" }}
               >
                 <FacebookIcon />
               </IconButton>
               <IconButton
-                href="#"
+                href=" https://www.instagram.com/p/DMuUibqJYQT/?igsh=MWI1bnE5ODZpeW03Zg=="
                 sx={{ color: "white", bgcolor: "rgba(255,255,255,0.1)" }}
               >
                 <InstagramIcon />
@@ -261,7 +261,7 @@ const Footer = () => {
                 <LinkedInIcon />
               </IconButton>
               <IconButton
-                href="#"
+                href="https://www.youtube.com/@ShubhTriptravel"
                 sx={{ color: "white", bgcolor: "rgba(255,255,255,0.1)" }}
               >
                 <YouTubeIcon />
